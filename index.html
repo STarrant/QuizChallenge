@@ -28,7 +28,24 @@
     <section class="qc_main">
         <div id="qc_startScreen">
             <h3>Start a New Game?</h3>
-            <button>Yes</button>
+            
+            <label for="qc_numQuestions">How many questions do you want:</label>
+            <select name="qc_numQuestions" id="qc_numQuestions">
+                <option value="num3">3</option>
+                <option value="num5">5</option>
+                <option value="num7">7</option>
+                <option value="num10">10</option>
+                <option value="num15">15</option>
+            </select>
+            <label for="qc_category">Which topics do you want:</label>
+            <select name="qc_category" id="qc_category">
+                <option value="catA">Science</option>
+                <option value="catB">Geography</option>
+                <option value="catC">Politics</option>
+                <option value="catD">History</option>
+                <option value="catE">Sport</option>
+            </select>
+            <button>Start</button>
         </div>
         <div id="qc_questionScreen">
             <h4>Question:<span id="qc_question"></span></h4>
