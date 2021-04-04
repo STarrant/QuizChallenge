@@ -4,11 +4,11 @@ console.log('Script Started'); //To_be_deleted.
 function fetchQuestions(numQuestions, category, difficulty) {
     fetch(`https://opentdb.com/api.php?amount=${numQuestions}&category=${category}&difficulty=${difficulty}`)
     .then(result => result.json())
-    .then(data => questionsToArray(data.results))
+    .then(data => questionsToObject(data.results))
 }
 
 // Function to generate an object from returned JSON of opentdb.
-function questionsToArray(data) {
+function questionsToObject(data) {
     const questionSet = data.map(item => {
         return {
             question: item.question,
