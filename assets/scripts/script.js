@@ -1,8 +1,30 @@
 console.log('Script Started'); //To_be_deleted.
 
+// Function to fetch a number of questions of particular category and difficulty from the open tdb (trivia database)
+function fetchQuestions(numQuestions, category, difficulty) {
+    fetch(`https://opentdb.com/api.php?amount=${numQuestions}&category=${category}&difficulty=${difficulty}`)
+    .then(result => result.json())
+    .then(data => questionsToArray(data.results))
+}
+
+// Function to generate an object from returned JSON of opentdb.
+function questionsToArray(data) {
+    const questionSet = data.map(item => {
+        return {
+            question: item.question,
+            correctAnswer: item.correct_answer,
+            answers: [...item.incorrect_answers, item.correct_answer]
+        }
+    })
+    console.log(questionSet);   // To_be_deleted.
+}
+
+document.getElementById('qc_btnAnswerD').addEventListener('click', function(){
+    fetchQuestions(10,10,'easy');
+});
+
 // Function to write new question and four answers to the HTML.
 // Function contains five arguments for the text values of the question and four possible answers.
-
 function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
     console.log('Start printAnswers()'); //To_be_deleted.
     question = document.getElementById('qc_txtQuestion');
