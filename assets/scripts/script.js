@@ -10,10 +10,12 @@ function fetchQuestions(numQuestions, category, difficulty) {
 // Function to generate an object from returned JSON of opentdb.
 function questionsToObject(data) {
     const questionSet = data.map(item => {
+        let answerArray = [...item.incorrect_answers, item.correct_answer]
+        answerArray.sort(() => Math.random() - 0.5);   // code courtesy of javascript.info/task/shuffle
         return {
             question: item.question,
             correctAnswer: item.correct_answer,
-            answers: [...item.incorrect_answers, item.correct_answer]
+            answers: answerArray
         }
     })
     console.log(questionSet);   // To_be_deleted.
