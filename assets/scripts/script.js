@@ -1,6 +1,61 @@
 console.log('Script Started'); //To_be_deleted.
 
-let player1QuestionSet = [];
+questions = [];
+
+fetch(
+    'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
+)
+    .then((res) => {
+        return res.json();
+    })
+    .then((loadedQuestions) => {
+        questions = loadedQuestions.results.map((loadedQuestion) => {
+            const formattedQuestion = {
+                question: loadedQuestion.question,
+            };
+
+            const answerChoices = [...loadedQuestion.incorrect_answers];
+            formattedQuestion.answer = Math.floor(Math.random() * 4) + 1;
+            answerChoices.splice(
+                formattedQuestion.answer - 1,
+                0,
+                loadedQuestion.correct_answer
+            );
+
+            answerChoices.forEach((choice, index) => {
+                formattedQuestion['choice' + (index + 1)] = choice;
+            });
+            console.log(formattedQuestion);
+            return formattedQuestion;
+        });
+        //startGame();
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+
+console.log(questions);
+
+/*    
+//CONSTANTS
+const CORRECT_BONUS = 10;
+const MAX_QUESTIONS = 3;
+
+startGame = () => {
+    questionCounter = 0;
+    score = 0;
+    availableQuesions = [...questions];
+    getNewQuestion();
+};
+*/
+
+
+
+
+
+
+
+/*
 
 // Function to fetch a number of questions of particular category and difficulty from the open tdb (trivia database)
 function fetchQuestions(numQuestions, category, difficulty) {
@@ -55,6 +110,6 @@ function printQuestion(questionText, answerAText, answerBText, answerCText, answ
 //document.getElementById('qc_btnAnswerA').addEventListener('click', function(){
 //    printQuestion('test text for question', 'Hello answer a', 'Hello answer b', 'Hello answer c', 'Hello answer d');
 //});
-
+*/
 console.log('Script Ended'); //To_be_deleted.
 //function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
