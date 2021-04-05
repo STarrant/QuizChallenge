@@ -1,45 +1,12 @@
 console.log('Script Started'); //To_be_deleted.
 
-let player1Questions = [];
-
-// Function to fetch a number of questions of particular category and difficulty from the open tdb (trivia database)
-function fetchQuestions(numQuestions, category, difficulty) {
-    fetch(`https://opentdb.com/api.php?amount=${numQuestions}&category=${category}&difficulty=${difficulty}&type=multiple`)
-    .then(result => result.json())
-    .then(data => {
-        console.log(data).results;
-        data.results.map( data => {
-            const formattedQuestion = {
-                question: data.questions
-            }
-
-        })
-    })
-
-
-}
-
-// Function to generate an object from returned JSON of opentdb.
-function questionsToObject(data) {
-    const questionSet = data.map(item => {
-        let answerArray = [...item.incorrect_answers, item.correct_answer]
-        answerArray.sort(() => Math.random() - 0.5);   // code courtesy of javascript.info/task/shuffle
-        return {
-            question: item.question,
-            correctAnswer: item.correct_answer,
-            answers: answerArray
-        }
-    })
-    console.log(questionSet);   // To_be_deleted.
-}
-
-/*
+let player1QuestionSet = [];
 
 // Function to fetch a number of questions of particular category and difficulty from the open tdb (trivia database)
 function fetchQuestions(numQuestions, category, difficulty) {
     fetch(`https://opentdb.com/api.php?amount=${numQuestions}&category=${category}&difficulty=${difficulty}`)
     .then(result => result.json())
-    .then(data => questionsToObject(data.results))
+    .then(jsonQuestions => questionsToObject(jsonQuestions.results))
 }
 
 // Function to generate an object from returned JSON of opentdb.
@@ -56,9 +23,9 @@ function questionsToObject(data) {
     console.log(questionSet);   // To_be_deleted.
 }
 
+
 fetchQuestions(5,10,"hard");
-player1Questions = questionsToObject(data);
-console.log(player1Questions);
+console.log(playerQuestionSet);
 
 
 //console.log(player1Questions[0].correctAnswer);
@@ -67,10 +34,7 @@ console.log(player1Questions);
 //console.log(player1Questions[0].answers[2]);
 //console.log(player1Questions[0].answers[3]);
 
-*/
-document.getElementById('qc_btnAnswerD').addEventListener('click', function(){
-    fetchQuestions(10,10,'easy');
-});
+
 
 // Function to write new question and four answers to the HTML.
 // Function contains five arguments for the text values of the question and four possible answers.
