@@ -1,7 +1,8 @@
-
-// --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
+// --- VARIABLES ---
 var questionSet = [];
 
+
+// --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
 document.getElementById('qc_startGame').addEventListener('click', function(){
     getQuestions();
 });
@@ -22,10 +23,22 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
         return item;
     });
 
-    var htmlQuestionList = questionArray.map(function (item) {              //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
-        return '<li>' + item.q + '  -  ' + item.a_correct + '</li>';  
-    }).join('');
-    document.getElementById('qc_testQuestionList').innerHTML = htmlQuestionList;   //This string is inserted to the HTML categories list in index.html.
+    //var htmlQuestionList = questionArray.map(function (item) {              //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
+    //    return '<li>' + item.q + '  -  ' + item.a_correct + '</li>';  
+    //}).join('');
+    //document.getElementById('qc_testQuestionList').innerHTML = htmlQuestionList;   //This string is inserted to the HTML categories list in index.html.
+
+    // Test writing values into an Array
+    //questionSet = questionArray.map(item => {
+    //return {
+    //  question: item.question,
+    //  correct_answer: item.correct_answer,
+        //answers: [...item.incorrect_answers, item.correct_answer]
+    //}
+  //})
+  questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
+  console.log(questionSet);    // To be deleted.
+
 }
 // --- END FETCH QUESTIONS AND PUT IN AN ARRAY ---
 
