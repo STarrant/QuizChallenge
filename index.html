@@ -24,6 +24,7 @@
         <p>Logo</p>
         <p>Page Title</p>
         <p>Nav</p>
+        <button id="scriptTestBtn">Test: <span id="scriptTestSpan"></span></button>
     </header>
     <section class="qc_main">
         <div id="qc_startScreen">
@@ -37,13 +38,11 @@
                 <option value="num10">10</option>
                 <option value="num15">15</option>
             </select>
+            <!-- Category Selection Dropdown -->
+            <!-- Categories are loaded at startup from script.js -->
             <label for="qc_category">Which topics do you want:</label>
             <select name="qc_category" id="qc_category">
-                <option value="catA">Science</option>
-                <option value="catB">Geography</option>
-                <option value="catC">Politics</option>
-                <option value="catD">History</option>
-                <option value="catE">Sport</option>
+                <option value="Err" selected>Error - Categories Not Loaded</option>
             </select>
             <button>Start</button>
         </div>

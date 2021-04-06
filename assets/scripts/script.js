@@ -1,5 +1,40 @@
-// Categories list from https://opentdb.com/api_category.php
+document.getElementById('scriptTestBtn').addEventListener('click', function(){
+    getCategories();
+});
 
+function getCategories(){fetch('https://opentdb.com/api_category.php')  //Fetch the available categories from OpenTDB.com.
+    .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
+.then(data => categoryJSONToHTMLOptions(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
+}
+
+function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
+    let opentdbCategoriesArray = opentdbCategoriesObject.trivia_categories;   //New array opentdbCategoriesArray is assigned to the trivia_categories array value.
+    var categoryArray = opentdbCategoriesArray.map( function(category) {   //Another new array categoryArray is mapped to the values of the opentdbCategories array.
+        var item = {
+            "id": category.id,
+            "name": category.name
+            }
+        return item;
+    });
+
+    var htmlCategoryList = categoryArray.map(function (item) {              //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
+        return '<option value="' + item.id + '"> ' + item.name + '</option>';  
+    }).join('');
+    htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;  //An all categories option is prepended and set to selected to the string.
+    document.getElementById('qc_category').innerHTML = htmlCategoryList;   //This string is inserted to the HTML categories list in index.html.
+
+}
+
+
+
+
+
+
+
+//   --------------------------------- Tested Code for Category Mapping to an Option List --------------------------------
+
+// Categories list from https://opentdb.com/api_category.php
+/*
 let opentdbCategoriesObject = {
     "trivia_categories":[
         {"id":9,"name":"General Knowledge"},
@@ -43,8 +78,8 @@ var htmlCategoryList = categoryArray.map(function (item) {
 }).join('');
 htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;
 document.getElementById('qc_category').innerHTML = htmlCategoryList;
-
-
+*/
+//   --------------------------------- End of Tested Code for Category Mapping to an Option List --------------------------------
 
 /*
 
