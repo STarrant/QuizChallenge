@@ -1,0 +1,3 @@
+
+Mapping JSON objects to arrays explained.
+https://medium.com/@sandhya.sadanandan/javascript-how-to-construct-an-array-of-json-objects-using-map-d1a513727008
