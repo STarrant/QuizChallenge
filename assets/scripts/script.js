@@ -1,3 +1,37 @@
+
+// --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
+var questionSet = [];
+
+document.getElementById('qc_startGame').addEventListener('click', function(){
+    getQuestions();
+});
+
+function getQuestions(){fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple')  //Fetch XXXXXX questions from OpenTDB.com.
+    .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
+    .then(data => questionJSONtoArray(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
+}
+
+function questionJSONtoArray(opentdbQuestionObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
+    let opentdbQuestionArray = opentdbQuestionObject.results;   //New array opentdbCategoriesArray is assigned to the trivia_categories array value.
+    var questionArray = opentdbQuestionArray.map( function(questions) {   //Another new array categoryArray is mapped to the values of the opentdbCategories array.
+        var item = {
+            "q": questions.question,
+            "a_correct": questions.correct_answer,
+            "a_incorrect": questions.incorrect_answers
+            }
+        return item;
+    });
+
+    var htmlQuestionList = questionArray.map(function (item) {              //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
+        return '<li>' + item.q + '  -  ' + item.a_correct + '</li>';  
+    }).join('');
+    document.getElementById('qc_testQuestionList').innerHTML = htmlQuestionList;   //This string is inserted to the HTML categories list in index.html.
+}
+// --- END FETCH QUESTIONS AND PUT IN AN ARRAY ---
+
+
+
+
 // --- FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
 
 document.getElementById('scriptTestBtn').addEventListener('click', function(){
@@ -26,7 +60,6 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
     document.getElementById('qc_category').innerHTML = htmlCategoryList;   //This string is inserted to the HTML categories list in index.html.
 }
 // --- END FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
-
 
 
 
