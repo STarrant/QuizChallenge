@@ -2,7 +2,7 @@
 
 * zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz.
 
-* zzz Website mockup image to be added
+* Website mockup image to be added testhigh
 
 ## Contents
 
@@ -33,29 +33,43 @@
 
 ### Project Goals
 
-* The goal of this project is to...
+* The goal of this project is to create a simple, fun quiz game that is intuitive to use and draws on an 
+external trivia database to maintain a user's interest by continually providing new questions.
 
 ### User Goals
 
-* _________________________________
+* Intuitive interface that allows the first game to start with a single click.
+* Further options available for changing the number of questions, selecting different quiz topics are available.
+* Simple button interface for multiple choice answer selection.
+* Score kept for each game so progress is always visible.
 
 ### User Stories
 
-* As a **user**, I want to see _______________________
+* As a **user**, I want to see a simple, fun and intuitive layout.
+* As a **user**, I want to be able to start my first game with a single click to see if I like this game.
+* As a **user**, I want to see my current score so I can keep track of how I'm doing.
+* As a **user**, I want to be challenged with different questions every time I play this game.
+* As a **user**, I may want to see who developed this game to contact them with suggestions or business proposals.
 
 ### Site Owner Goals
 
-* As a **site-owner**, I want to ________________________________
+* As a **site-owner**, I want to make an attractive and simple interface so that people will want to play this game.
+* As a **site-owner**, I want to have a varying set of trivia questions to create longer playing periods and return traffic to the site.
+* As a **site-owner**, I want to have a options available to players to create a sense of customisibility to avoid player fatigue.
 
 ### User Requirements and Expectations
 
 #### Requirements
 
-* ________________________________________________
+* Simple single-page interface with navbar normally as a burger icon collapsed.
+* Fast loading times are imperative to avoid a user leaving the page due to lag.
+* Contact form for users to send requests, suggestions or trivia questions.
 
 #### Expectations
 
-* ____________________________________________________
+* Content is visually satisfying and exciting.
+* Game automatically cycles from start page, through questions to final score without glitching or issues.
+* 
 
 ### Design Choices
 
@@ -72,7 +86,7 @@ __________________________________________________________
 
 #### Colors
 
-The website colors were chosen using [coolors.co](https://coolors.co/). The choice was based on ________________________________________
+The website colors were chosen using [coolors.co](https://coolors.co/).
 
 ## Wireframing
 
@@ -152,7 +166,7 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 * ______________________________________________________________________________________________________________________
 
 <details>
-  <summary>Responsiveness of the design was tested using Chrome's Developer Tools and the result overall was a **PASS**. Open the dropdown here to see screenshots of the results.</summary>
+  <summary>Responsiveness of the design was tested using Chrome's Developer Tools and the result overall was a xxxxxxxxxxxxxx  **PASS**   xxxxxxxxxxxxx. Open the dropdown here to see screenshots of the results.</summary>
 
 #### Summary of responsive design tests
 
@@ -202,22 +216,7 @@ Many bugs were encountered during the development of the project - all admittedl
 
 ### Development Bugs
 
-* Header styling was very difficult to achieve and went through a number of iterations before getting the hang of the Bootstrap
-grid. Padding, margins, centering of text and mobile first design were seemingly impossible to achieve so a version was done using
-flexbox but this also had some centering issues and glitching at breakpoints. The final design was a return to the bootstrap grid
-with simple bootstrap spacing classes used to minimse the y-margin on paragraphs.
-* Footer styling was similarly difficult to achieve and a flexbox version of that was trialed also before reverting to bootstrap grid.
-* Font Awesome icons were troublesome to get working because of an erroneous version number in the head. SVG icons were used in an
-interim version of the site. My mentor spotted the error and advised to return to Font Awesome and no further issues were encountered.
-* There were a lot of issues with the Navbar getting it to work correctly and collapse at the correct breakpoints.
-* Page linking and images caused some difficulty until the correct reference paths were used.
-* Sticky-top was a feature that cost a lot of time and effort to get functioning on the site. For most of the project, it was abandoned due to issues
-regarding header margins and id links not working correctly with navigation. In the end, I got it working with a bit of advice from my mentor and a line of code
-from [gomakethings.com](https://gomakethings.com/how-to-prevent-anchor-links-from-scrolling-behind-a-sticky-header-with-one-line-of-css/). Sticky-top threw up
- a number of other issues also such as the id links of anchors and the floating button which had to be resolved.
-* The navbar not collapsing after click on a link was a minor issue that takes from the overall UX of the site. Unfortunately, this is not
-  solveable without using a small bit of JavaScript. The source is credited below and acknowledgement is made here that I have exceeded the
-  bounds of the HTML/CSS only project.
+* The opentdb api was very, very difficult to get working as a JavaScript learner. I had serious difficulty fetching the JSON and storing this question data in an array of objects to be used in the quiz loop.
 
 ### Testing Bugs
 
@@ -227,7 +226,7 @@ from [gomakethings.com](https://gomakethings.com/how-to-prevent-anchor-links-fro
 
 ---
 
-The site has been deployed on [GitHub Pages](https://pages.github.com/) with under the following link [Ace Engineering Services](https://starrant.github.io/ace-engineering-services/index.html).
+The site has been deployed on [GitHub Pages](https://pages.github.com/) with under the following link [QuizChallenge](https://starrant.github.io/quizchallenge/index.html).
 
 ## Credits
 
