@@ -1,3 +1,5 @@
+// --- FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
+
 document.getElementById('scriptTestBtn').addEventListener('click', function(){
     getCategories();
 });
@@ -22,9 +24,8 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
     }).join('');
     htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;  //An all categories option is prepended and set to selected to the string.
     document.getElementById('qc_category').innerHTML = htmlCategoryList;   //This string is inserted to the HTML categories list in index.html.
-
 }
-
+// --- END FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
 
 
 
