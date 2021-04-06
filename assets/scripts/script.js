@@ -37,18 +37,12 @@ var categoryArray = opentdbCategoriesArray.map( function(category) {
     return item;
 });
 
-console.log(categoryArray[3]);
-console.log(categoryArray[3].id)
-console.log(categoryArray[3].name)
-
 var htmlCategoryList = categoryArray.map(function (item) {
-  return '<option>' + item.id + ', ' +
+  return '<option value="' + item.id + '"> ' +
     item.name + '</option>';  
 }).join('');
-
-console.log(htmlCategoryList);
-
-document.getElementById('qc_numQuestions').innerHTML = htmlCategoryList;
+htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;
+document.getElementById('qc_category').innerHTML = htmlCategoryList;
 
 
 
