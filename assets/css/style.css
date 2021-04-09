@@ -29,16 +29,29 @@
 
 
 /* General */
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  height: 100vh;
+  width: 100vw;
 }
 
 .qc_hide{
     display: none;
 }
 
-
+#qc_startScreen,
+#qc_questionScreen {
+    background-color: #efefef;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    margin: 0;
+}
 
 /* General Button Styling */
 .qc_questionBtn {
