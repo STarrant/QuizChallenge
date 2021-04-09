@@ -1,6 +1,18 @@
 // --- VARIABLES ---
-var questionSet = [];
 
+
+let questionSet = [];
+let currentQuestion = {};
+let currentScore = 0;
+let MAX_QUESTION = 0;
+
+
+// --- FUNCTIONS TO RUN ON LOADING THE PAGE ---
+
+window.onload = function() {
+  getCategories();
+
+};
 
 // --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
 document.getElementById('qc_startGame').addEventListener('click', function(){
@@ -22,23 +34,9 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
             }
         return item;
     });
-
-    //var htmlQuestionList = questionArray.map(function (item) {              //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
-    //    return '<li>' + item.q + '  -  ' + item.a_correct + '</li>';  
-    //}).join('');
-    //document.getElementById('qc_testQuestionList').innerHTML = htmlQuestionList;   //This string is inserted to the HTML categories list in index.html.
-
-    // Test writing values into an Array
-    //questionSet = questionArray.map(item => {
-    //return {
-    //  question: item.question,
-    //  correct_answer: item.correct_answer,
-        //answers: [...item.incorrect_answers, item.correct_answer]
-    //}
-  //})
   questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
   console.log(questionSet);    // To be deleted.
-
+  printQuestion(questionSet[0].q, questionSet[0].a_correct, questionSet[0].a_incorrect[0], questionSet[0].a_incorrect[1], questionSet[0].a_incorrect[2]);
 }
 // --- END FETCH QUESTIONS AND PUT IN AN ARRAY ---
 
@@ -46,10 +44,6 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
 
 
 // --- FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
-
-document.getElementById('scriptTestBtn').addEventListener('click', function(){
-    getCategories();
-});
 
 function getCategories(){fetch('https://opentdb.com/api_category.php')  //Fetch the available categories from OpenTDB.com.
     .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
@@ -75,6 +69,20 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
 // --- END FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
 
 
+// Print a new question to the game screen
+function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
+    console.log('Start printAnswers()'); //To_be_deleted.
+    question = document.getElementById('qc_txtQuestion');
+    question.textContent = questionText;
+    answerA = document.getElementById('qc_txtAnswerA');
+    answerA.textContent = answerAText;
+    answerB = document.getElementById('qc_txtAnswerB');
+    answerB.textContent = answerBText;
+    answerC = document.getElementById('qc_txtAnswerC');
+    answerC.textContent = answerCText;
+    answerD = document.getElementById('qc_txtAnswerD');
+    answerD.textContent = answerDText;
+}
 
 
 
