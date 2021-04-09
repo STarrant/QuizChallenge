@@ -6,12 +6,20 @@
 /* font-family: 'Padauk', sans-serif; */
 
 /* Colors */
-/* Primary Dark */
-/* Secondary Dark */
-/* Primary Brand */
-/* Secondary Brand   */
-/* Tertiary Brand */
 
+.qc_colors {
+ color: #F94144;    /* Color 1 - Red */
+ color: #F3722C;    /* Color 2 - Orange*/
+ color: #F8961E;    /* Color 3 - Tangerine*/
+ color: #F9C74F;    /* Color 4 - Yellow*/
+ color: #90BE6D;    /* Color 5 - Light Green*/
+ color: #43AA8B;    /* Color 6 - Sea Green*/
+ color: #577590;    /* Color 7 - Slate Blue*/
+ color: #fafafa;    /* Color WH - Off-White*/
+ color: #2B3A48;    /* Color 7 -50%*/
+ color: #161D24;    /* Color 7 -75%*/
+
+}
 
 /* Special Paddings Margins Text Rules */
 
