@@ -2,21 +2,48 @@
 
 
 let questionSet = [];
+let currentQuestionNumber;
 let currentQuestion = {};
-let currentScore = 0;
-let MAX_QUESTION = 0;
+let currentScore;
+let currentCategory;
+let MAX_QUESTION;
 
 
 // --- FUNCTIONS TO RUN ON LOADING THE PAGE ---
 
 window.onload = function() {
   getCategories();
-
 };
+
+// --- START GAME FUNCTION ---
+
+function startGame() {
+    currentQuestionNumber = 0;
+    currentScore = 0;
+    MAX_QUESTION = document.getElementById('qc_numQuestions').value;
+    currentCategory = document.getElementById('qc_category').value;
+    console.log("Max Question value selected is:");
+    console.log(MAX_QUESTION);
+    console.log("Current Category is:");
+    console.log(currentCategory);
+    console.log(typeof(currentCategory));
+    let categoryString = "";
+    if (currentCategory === "All"){
+        categoryString = "-All-";
+    } else if (typeof(parseInt(currentCategory)) === 'number') {
+        categoryString = "&category=" + currentCategory;
+    } else {
+        categoryString ="ERROR";
+    }
+    console.log(currentCategory);
+    console.log(categoryString);
+}
+
 
 // --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
 document.getElementById('qc_startGame').addEventListener('click', function(){
     getQuestions();
+    startGame();
 });
 
 function getQuestions(){fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple')  //Fetch XXXXXX questions from OpenTDB.com.
