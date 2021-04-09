@@ -31,8 +31,17 @@ html {
 
 
 /* General Button Styling */
+.qc_questionBtn {
+    background-color: blue !important;
+    color: #ffffff !important;
+    border: 2px solid darkblue !important;
+    box-shadow: 0 9px gray !important;
+    border-radius: 1rem !important;
+}
 
-
+.qc_buttonDiv {
+    padding: 10px;
+}
 
 /* Heading */
 
@@ -40,6 +49,7 @@ html {
 
 
 /*  Images and image titles */
+
 
 
 /* Footer */
