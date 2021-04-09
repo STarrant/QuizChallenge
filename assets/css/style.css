@@ -1,3 +1,69 @@
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Padauk:wght@400;700&display=swap');
+
+/* font-family: 'Roboto', sans-serif; */
+/* font-family: 'Padauk', sans-serif; */
+
+/* Colors */
+/* Primary Dark */
+/* Secondary Dark */
+/* Primary Brand */
+/* Secondary Brand   */
+/* Tertiary Brand */
+
+
+/* Special Paddings Margins Text Rules */
+
+
+
+
+
+/* General */
+html {
+  scroll-behavior: smooth;
+}
+
 .qc_hide{
     display: none;
+}
+
+
+
+/* General Button Styling */
+
+
+
+/* Heading */
+
+
+
+
+/*  Images and image titles */
+
+
+/* Footer */
+
+
+/* Hover.css */
+
+
+
+
+
+/* Media Query */
+
+@media only screen and (min-width: 575.98px) {
+
+    
+}
+
+@media only screen and (min-width: 767.98px) {
+
+    
+}
+
+@media only screen and (min-width: 991.98px) {
+   
+   
 }
