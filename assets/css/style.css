@@ -1,9 +1,10 @@
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Padauk:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Noto+Sans+SC&display=swap');
 
-/* font-family: 'Roboto', sans-serif; */
-/* font-family: 'Padauk', sans-serif; */
+
+/* font-family: 'Noto Sans SC', sans-serif; */
+/* font-family: 'Libre Baskerville', serif; */
 
 /* Colors */
 
@@ -15,7 +16,7 @@
  color: #90BE6D;    /* Color 5 - Light Green*/
  color: #43AA8B;    /* Color 6 - Sea Green*/
  color: #577590;    /* Color 7 - Slate Blue*/
- color: #fafafa;    /* Color WH - Off-White*/
+ color: #efefef;    /* Color BG - Off-White Background*/
  color: #2B3A48;    /* Color 7 -50%*/
  color: #161D24;    /* Color 7 -75%*/
 
@@ -30,6 +31,7 @@
 /* General */
 html {
   scroll-behavior: smooth;
+
 }
 
 .qc_hide{
@@ -40,9 +42,9 @@ html {
 
 /* General Button Styling */
 .qc_questionBtn {
-    background-color: blue !important;
+    background-color: #577590 !important;
     color: #ffffff !important;
-    border: 2px solid darkblue !important;
+    border: 2px solid #2B3A48 !important;
     box-shadow: 0 9px gray !important;
     border-radius: 1rem !important;
 }
