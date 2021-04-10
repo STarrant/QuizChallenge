@@ -13,26 +13,23 @@ let MAX_QUESTION;
 // --- FUNCTIONS TO RUN ON LOADING THE PAGE ---
 
 window.onload = function() {
-  getCategories();
+  getCategories();              // Function call to pull quiz categories from OpenTDB.com
 };
 
 // --- START GAME FUNCTION ---
 
 function startGame() {
+    //Initialize Variables
     currentQuestionNumber = 0;
     currentScore = 0;
+    //Pull selected values from HTML Page
     MAX_QUESTION = document.getElementById('qc_numQuestions').value;
     currentCategory = document.getElementById('qc_category').value;
     currentDifficulty = document.getElementById('qc_difficulty').value;
-    //console.log("Max Question value selected is:");
-    //console.log(MAX_QUESTION);
-    //console.log("Current Category is:");
-    //console.log(currentCategory);
-    //console.log(typeof(currentCategory));
-    //console.log(currentDifficulty);
-    
-    
-    
+    //Creating Strings for sending to OpenTDB in fetch command.
+    //Number of Questions that we want for the game.
+    let numQuestionsString = "amount=" + MAX_QUESTION;
+    //The category selector for the game.
     let categoryString = "";
     if (currentCategory === "All"){
         categoryString = "";
@@ -41,7 +38,7 @@ function startGame() {
     } else {
         categoryString ="ERROR";
     }
-
+    //The difficulty selction of the game.
     let difficultyString = "";
     if (currentDifficulty === "All"){
         difficultyString = "";
@@ -50,19 +47,15 @@ function startGame() {
     } else {
         difficultyString ="ERROR";
     }
-
-    getQuestions(categoryString, difficultyString);
+    //Call the getQuestions function with the assembled strings.
+    getQuestions(numQuestionsString, categoryString, difficultyString);
+    //console.log(MAX_QUESTION);
+    //console.log(numQuestionsString);
     //console.log(currentCategory);
     //console.log(categoryString);
     //console.log(currentDifficulty);
     //console.log(difficultyString);
-}
-
-
-function getQuestionsTest(category, difficulty){fetch(`https://opentdb.com/api.php?amount=10` + category + difficulty +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
-    .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
-    .then(data => questionJSONtoArray(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
-    
+    //console.log(`https://opentdb.com/api.php?`+ numQuestionsString + categoryString + difficultyString +`&type=multiple`)
 }
 
 
@@ -73,7 +66,7 @@ document.getElementById('qc_startGame').addEventListener('click', function(){
     startGame();
 });
 
-function getQuestions(category, difficulty){fetch(`https://opentdb.com/api.php?amount=10` + category + difficulty +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
+function getQuestions(numQuestionsString, categoryString, difficultyString){fetch(`https://opentdb.com/api.php?`+ numQuestionsString + categoryString + difficultyString +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
     .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
     .then(data => questionJSONtoArray(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
 }
