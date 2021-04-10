@@ -1,13 +1,18 @@
 // --- VARIABLES ---
 
-
-let questionSet = [];
-let currentQuestionNumber;
-let currentQuestion = {};
-let currentScore;
 let currentCategory;
 let currentDifficulty;
 let MAX_QUESTION;
+
+let questionSet = [];
+
+let currentQuestionNumber;
+let currentQuestion = "";
+let currentCorrectAnswer = "";
+let currentAnswerArray = [];
+
+let currentScore;
+
 
 
 // --- FUNCTIONS TO RUN ON LOADING THE PAGE ---
@@ -20,7 +25,7 @@ window.onload = function() {
 
 function startGame() {
     //Initialize Variables
-    currentQuestionNumber = 0;
+    currentQuestionNumber = 1;
     currentScore = 0;
 
     //Pull selected values from HTML Page
@@ -117,17 +122,29 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
 }
 // --- END FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
 
-// --- TEST CODE TO CYCLE THROUGH QUESTIONS ---
-function testQuestionCycle(){
-    if(currentQuestionNumber < MAX_QUESTION){
-        let currentQuestionObject = questionSet[0];
-        console.log("questionSet is:");
-        console.log(questionSet);
-        console.log("currentQuestionObject is:");
-        console.log(currentQuestionObject);
-        console.log("questionSet.shift() is:");
-        console.log(questionSet);
-        printQuestion(questionSet[currentQuestionNumber].q, questionSet[currentQuestionNumber].a_correct, questionSet[currentQuestionNumber].a_incorrect[0], questionSet[currentQuestionNumber].a_incorrect[1], questionSet[currentQuestionNumber].a_incorrect[2]);
+// --- NEXT QUESTION FUNCTION ---
+function nextQuestion(){
+    if(currentQuestionNumber <= MAX_QUESTION){
+        //let currentQuestionObject = questionSet[currentQuestionNumber-1];
+        //console.log("questionSet is:");
+        //console.log(questionSet);
+        //console.log("currentQuestionObject is:");
+        //console.log(currentQuestionObject);
+        //console.log("questionSet.shift() is:");
+        //console.log(questionSet);
+        //let answerArray = [...currentQuestionObject.a_incorrect, currentQuestionObject.a_correct];
+        //console.log(answerArray);
+        //answerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
+        //console.log(answerArray);
+
+        //printQuestion(questionSet[currentQuestionNumber].q, questionSet[currentQuestionNumber].a_correct, questionSet[currentQuestionNumber].a_incorrect[0], questionSet[currentQuestionNumber].a_incorrect[1], questionSet[currentQuestionNumber].a_incorrect[2]);
+        //currentQuestionNumber++;
+
+        currentQuestion = questionSet[currentQuestionNumber-1].q;
+        currentAnswerArray = [...questionSet[currentQuestionNumber-1].a_incorrect, questionSet[currentQuestionNumber-1].a_correct];
+        currentAnswerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
+        currentCorrectAnswer = questionSet[currentQuestionNumber-1].a_correct;
+        printQuestion(currentQuestion, currentAnswerArray[0], currentAnswerArray[1], currentAnswerArray[2], currentAnswerArray[3]);
         currentQuestionNumber++;
     } else {
         console.log("No more questions");
@@ -136,7 +153,7 @@ function testQuestionCycle(){
 
 document.getElementById('scriptTestBtn1').addEventListener('click', function(){
     //getQuestions();    //Commented out for test.
-    testQuestionCycle();
+    nextQuestion();
 });
 
 
