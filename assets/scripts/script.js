@@ -22,10 +22,12 @@ function startGame() {
     //Initialize Variables
     currentQuestionNumber = 0;
     currentScore = 0;
+
     //Pull selected values from HTML Page
     MAX_QUESTION = document.getElementById('qc_numQuestions').value;
     currentCategory = document.getElementById('qc_category').value;
     currentDifficulty = document.getElementById('qc_difficulty').value;
+
     //Creating Strings for sending to OpenTDB in fetch command.
     //Number of Questions that we want for the game.
     let numQuestionsString = "amount=" + MAX_QUESTION;
@@ -83,7 +85,7 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
     });
   questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
   console.log(questionSet);    // To be deleted.
-  printQuestion(questionSet[0].q, questionSet[0].a_correct, questionSet[0].a_incorrect[0], questionSet[0].a_incorrect[1], questionSet[0].a_incorrect[2]);
+  //printQuestion(questionSet[0].q, questionSet[0].a_correct, questionSet[0].a_incorrect[0], questionSet[0].a_incorrect[1], questionSet[0].a_incorrect[2]);
 }
 // --- END FETCH QUESTIONS AND PUT IN AN ARRAY ---
 
@@ -114,6 +116,23 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
     document.getElementById('qc_category').innerHTML = htmlCategoryList;   //This string is inserted to the HTML categories list in index.html.
 }
 // --- END FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
+
+// --- TEST CODE TO CYCLE THROUGH QUESTIONS ---
+function testQuestionCycle(){
+    if(questionSet.length > 0){
+        let currentQuestionObject = questionsSet[0];
+        console.log("questionSet is:");
+        console.log(questionSet);
+        console.log("currentQuestionObject is:");
+        console.log(currentQuestionObject);
+        questionSet.shift();
+        console.log("questionSet.shift() is:");
+        console.log(questionSet);
+        printQuestion(questionSet[0].q, questionSet[0].a_correct, questionSet[0].a_incorrect[0], questionSet[0].a_incorrect[1], questionSet[0].a_incorrect[2]);
+    } else {
+        console.log("No more questions");
+    }
+}
 
 
 // Print a new question to the game screen
