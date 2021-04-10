@@ -125,21 +125,6 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
 // --- NEXT QUESTION FUNCTION ---
 function nextQuestion(){
     if(currentQuestionNumber <= MAX_QUESTION){
-        //let currentQuestionObject = questionSet[currentQuestionNumber-1];
-        //console.log("questionSet is:");
-        //console.log(questionSet);
-        //console.log("currentQuestionObject is:");
-        //console.log(currentQuestionObject);
-        //console.log("questionSet.shift() is:");
-        //console.log(questionSet);
-        //let answerArray = [...currentQuestionObject.a_incorrect, currentQuestionObject.a_correct];
-        //console.log(answerArray);
-        //answerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
-        //console.log(answerArray);
-
-        //printQuestion(questionSet[currentQuestionNumber].q, questionSet[currentQuestionNumber].a_correct, questionSet[currentQuestionNumber].a_incorrect[0], questionSet[currentQuestionNumber].a_incorrect[1], questionSet[currentQuestionNumber].a_incorrect[2]);
-        //currentQuestionNumber++;
-
         currentQuestion = questionSet[currentQuestionNumber-1].q;
         currentAnswerArray = [...questionSet[currentQuestionNumber-1].a_incorrect, questionSet[currentQuestionNumber-1].a_correct];
         currentAnswerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
@@ -264,5 +249,34 @@ function printQuestion(questionText, answerAText, answerBText, answerCText, answ
 //document.getElementById('qc_btnAnswerA').addEventListener('click', function(){
 //    printQuestion('test text for question', 'Hello answer a', 'Hello answer b', 'Hello answer c', 'Hello answer d');
 //});
+
+function nextQuestion(){
+    if(currentQuestionNumber <= MAX_QUESTION){
+        //let currentQuestionObject = questionSet[currentQuestionNumber-1];
+        //console.log("questionSet is:");
+        //console.log(questionSet);
+        //console.log("currentQuestionObject is:");
+        //console.log(currentQuestionObject);
+        //console.log("questionSet.shift() is:");
+        //console.log(questionSet);
+        //let answerArray = [...currentQuestionObject.a_incorrect, currentQuestionObject.a_correct];
+        //console.log(answerArray);
+        //answerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
+        //console.log(answerArray);
+
+        //printQuestion(questionSet[currentQuestionNumber].q, questionSet[currentQuestionNumber].a_correct, questionSet[currentQuestionNumber].a_incorrect[0], questionSet[currentQuestionNumber].a_incorrect[1], questionSet[currentQuestionNumber].a_incorrect[2]);
+        //currentQuestionNumber++;
+
+        currentQuestion = questionSet[currentQuestionNumber-1].q;
+        currentAnswerArray = [...questionSet[currentQuestionNumber-1].a_incorrect, questionSet[currentQuestionNumber-1].a_correct];
+        currentAnswerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
+        currentCorrectAnswer = questionSet[currentQuestionNumber-1].a_correct;
+        printQuestion(currentQuestion, currentAnswerArray[0], currentAnswerArray[1], currentAnswerArray[2], currentAnswerArray[3]);
+        currentQuestionNumber++;
+    } else {
+        console.log("No more questions");
+    }
+}
+
 */
 console.log('Script Ended'); //To_be_deleted.
