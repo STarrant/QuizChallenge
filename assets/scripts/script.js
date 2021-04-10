@@ -119,20 +119,25 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
 
 // --- TEST CODE TO CYCLE THROUGH QUESTIONS ---
 function testQuestionCycle(){
-    if(questionSet.length > 0){
-        let currentQuestionObject = questionsSet[0];
+    if(currentQuestionNumber < MAX_QUESTION){
+        let currentQuestionObject = questionSet[0];
         console.log("questionSet is:");
         console.log(questionSet);
         console.log("currentQuestionObject is:");
         console.log(currentQuestionObject);
-        questionSet.shift();
         console.log("questionSet.shift() is:");
         console.log(questionSet);
-        printQuestion(questionSet[0].q, questionSet[0].a_correct, questionSet[0].a_incorrect[0], questionSet[0].a_incorrect[1], questionSet[0].a_incorrect[2]);
+        printQuestion(questionSet[currentQuestionNumber].q, questionSet[currentQuestionNumber].a_correct, questionSet[currentQuestionNumber].a_incorrect[0], questionSet[currentQuestionNumber].a_incorrect[1], questionSet[currentQuestionNumber].a_incorrect[2]);
+        currentQuestionNumber++;
     } else {
         console.log("No more questions");
     }
 }
+
+document.getElementById('scriptTestBtn1').addEventListener('click', function(){
+    //getQuestions();    //Commented out for test.
+    testQuestionCycle();
+});
 
 
 // Print a new question to the game screen
