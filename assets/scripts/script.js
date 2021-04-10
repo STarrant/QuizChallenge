@@ -101,7 +101,7 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
 
 function getCategories(){fetch('https://opentdb.com/api_category.php')  //Fetch the available categories from OpenTDB.com.
     .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
-.then(data => categoryJSONToHTMLOptions(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
+    .then(data => categoryJSONToHTMLOptions(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
 }
 
 function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
@@ -141,6 +141,13 @@ document.getElementById('scriptTestBtn1').addEventListener('click', function(){
     nextQuestion();
 });
 
+function checkAnswer(answer) {
+    console.log("CheckAnswer has run.");
+};
+
+document.getElementById('qc_btnAnswerA').addEventListener('click', function(){
+    checkAnswer();
+});
 
 // Print a new question to the game screen
 function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
