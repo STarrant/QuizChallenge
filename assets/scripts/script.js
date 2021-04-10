@@ -24,12 +24,12 @@ function startGame() {
     MAX_QUESTION = document.getElementById('qc_numQuestions').value;
     currentCategory = document.getElementById('qc_category').value;
     currentDifficulty = document.getElementById('qc_difficulty').value;
-    console.log("Max Question value selected is:");
-    console.log(MAX_QUESTION);
-    console.log("Current Category is:");
-    console.log(currentCategory);
-    console.log(typeof(currentCategory));
-    console.log(currentDifficulty);
+    //console.log("Max Question value selected is:");
+    //console.log(MAX_QUESTION);
+    //console.log("Current Category is:");
+    //console.log(currentCategory);
+    //console.log(typeof(currentCategory));
+    //console.log(currentDifficulty);
     
     
     
@@ -50,20 +50,30 @@ function startGame() {
     } else {
         difficultyString ="ERROR";
     }
-    console.log(currentCategory);
-    console.log(categoryString);
-    console.log(currentDifficulty);
-    console.log(difficultyString);
+
+    getQuestions(categoryString, difficultyString);
+    //console.log(currentCategory);
+    //console.log(categoryString);
+    //console.log(currentDifficulty);
+    //console.log(difficultyString);
 }
+
+
+function getQuestionsTest(category, difficulty){fetch(`https://opentdb.com/api.php?amount=10` + category + difficulty +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
+    .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
+    .then(data => questionJSONtoArray(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
+    
+}
+
 
 
 // --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
 document.getElementById('qc_startGame').addEventListener('click', function(){
-    getQuestions();
+    //getQuestions();    //Commented out for test.
     startGame();
 });
 
-function getQuestions(){fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple')  //Fetch XXXXXX questions from OpenTDB.com.
+function getQuestions(category, difficulty){fetch(`https://opentdb.com/api.php?amount=10` + category + difficulty +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
     .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
     .then(data => questionJSONtoArray(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
 }
