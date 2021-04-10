@@ -10,7 +10,7 @@
 
 /* Colors */
 
-.qc_colors {
+.qc_colors {           /* Unused Class */
  color: #F94144;    /* Color 1 - Red */
  color: #F3722C;    /* Color 2 - Orange*/
  color: #F8961E;    /* Color 3 - Tangerine*/
@@ -57,7 +57,7 @@ body {
 #qc_startScreen,
 #qc_questionScreen {
     /*background-color: #efefef;*/
-    height: 100vh;
+    height: 50vh;
     width: 100vw;
     padding: 20px;
     
@@ -77,6 +77,21 @@ body {
     border-radius: 1rem !important;
 }
 
+.qc_questionBtnCorrect {
+    background-color: #43AA8B !important;
+    color: #161D24 !important;
+    border: 2px solid #2B3A48 !important;
+    box-shadow: 0 9px gray !important;
+    border-radius: 1rem !important;
+}
+
+.qc_questionBtnIncorrect {
+    background-color: #F94144 !important;
+    color: #161D24 !important;
+    border: 2px solid #2B3A48 !important;
+    box-shadow: 0 9px gray !important;
+    border-radius: 1rem !important;
+}
 .qc_buttonDiv {
     padding: 10px;
 }
