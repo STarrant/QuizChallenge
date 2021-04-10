@@ -6,6 +6,7 @@ let currentQuestionNumber;
 let currentQuestion = {};
 let currentScore;
 let currentCategory;
+let currentDifficulty;
 let MAX_QUESTION;
 
 
@@ -22,21 +23,37 @@ function startGame() {
     currentScore = 0;
     MAX_QUESTION = document.getElementById('qc_numQuestions').value;
     currentCategory = document.getElementById('qc_category').value;
+    currentDifficulty = document.getElementById('qc_difficulty').value;
     console.log("Max Question value selected is:");
     console.log(MAX_QUESTION);
     console.log("Current Category is:");
     console.log(currentCategory);
     console.log(typeof(currentCategory));
+    console.log(currentDifficulty);
+    
+    
+    
     let categoryString = "";
     if (currentCategory === "All"){
-        categoryString = "-All-";
+        categoryString = "";
     } else if (typeof(parseInt(currentCategory)) === 'number') {
         categoryString = "&category=" + currentCategory;
     } else {
         categoryString ="ERROR";
     }
+
+    let difficultyString = "";
+    if (currentDifficulty === "All"){
+        difficultyString = "";
+    } else if ((currentDifficulty === 'easy') || (currentDifficulty === 'medium') || (currentDifficulty === 'hard')) {
+        difficultyString = "&difficulty=" + currentDifficulty;
+    } else {
+        difficultyString ="ERROR";
+    }
     console.log(currentCategory);
     console.log(categoryString);
+    console.log(currentDifficulty);
+    console.log(difficultyString);
 }
 
 
