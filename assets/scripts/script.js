@@ -152,29 +152,18 @@ function checkAnswer(answer) {
 };
 
 // -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
-
-function colorChanger(color) {
-  box.style.backgroundColor = color;
-}
-
-const colors = ['red', 'green', 'blue', 'yellow'];
-
-colors.forEach(color => document
-  .getElementById(color)
-  .addEventListener('click', () => colorChanger(color))
-);
-
-// --------------------------------------------------------
+// --- courtesy of timmy_i_chen   https://replit.com/@timmy_i_chen/EnchantingSilverTerabyte
 function whichButton(button) {
-  console.log("Button " +  + " was clicked.");
+  console.log("Button " + button + " was clicked.");
 }
 
-const buttons = ['qc_btnAnswerA', 'qc_btnAnswerB', 'qc_btnAnswerC', 'qc_btnAnswerD'];
+const buttons = ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD'];
 
 buttons.forEach(button => document
   .getElementById(button)
   .addEventListener('click', () => whichButton(button))
 );
+
 
 // -------------  END OF LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
 // -----------------------------------------------------------------------------------------------
