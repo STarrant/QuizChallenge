@@ -1,17 +1,21 @@
 // --- VARIABLES ---
 
-let currentCategory;
-let currentDifficulty;
-let MAX_QUESTION;
+const buttons = ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD'];    //IDs of the answer buttons.
 
-let questionSet = [];
+let currentCategory;                //Quiz category selection number - corresponds to opentdb.com php call.
+let currentDifficulty;              //Quiz difficulty selector - easy, medium, hard or all levels.
+let MAX_QUESTION;                   //How many questions per round.
 
-let currentQuestionNumber;
-let currentQuestion = "";
-let currentCorrectAnswer = "";
-let currentAnswerArray = [];
+let questionSet = [];               //Array of objects that holds the converted JSON question set from opentdb.com.
 
-let currentScore;
+let currentQuestionNumber;          //Pointer for which question the player is on, from 1 to MAX_QUESTION inclusive.
+let currentQuestion = "";           //String for current question to be displayed.
+let currentCorrectAnswer = "";      //String for current correct answer.
+let currentAnswerArray = [];        //Array of four randomized strings for possible answers.
+
+let currentScore;                   //Current game score (number)
+
+let gameReady = false;              //Boolean to prevent an answer button being overclicked.
 
 
 
@@ -27,6 +31,7 @@ function startGame() {
     //Initialize Variables
     currentQuestionNumber = 1;
     currentScore = 0;
+    gameReady = false;
 
     //Pull selected values from HTML Page
     MAX_QUESTION = document.getElementById('qc_numQuestions').value;
@@ -88,9 +93,9 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
             }
         return item;
     });
-  questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
-  console.log(questionSet);    // To be deleted.
-  //printQuestion(questionSet[0].q, questionSet[0].a_correct, questionSet[0].a_incorrect[0], questionSet[0].a_incorrect[1], questionSet[0].a_incorrect[2]);
+    questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
+    console.log(questionSet);    // To be deleted.
+    //printQuestion(questionSet[0].q, questionSet[0].a_correct, questionSet[0].a_incorrect[0], questionSet[0].a_incorrect[1], questionSet[0].a_incorrect[2]);
 }
 // --- END FETCH QUESTIONS AND PUT IN AN ARRAY ---
 
@@ -136,6 +141,7 @@ function nextQuestion(){
         }
         currentCorrectAnswer = questionSet[currentQuestionNumber-1].a_correct;
         printQuestion(currentQuestion, currentAnswerArray[0], currentAnswerArray[1], currentAnswerArray[2], currentAnswerArray[3]);
+        gameReady = true;
         currentQuestionNumber++;
     } else {
         console.log("No more questions");
@@ -147,19 +153,31 @@ document.getElementById('scriptTestBtn1').addEventListener('click', function(){
     nextQuestion();
 });
 
-function checkAnswer(answer) {
-    console.log("CheckAnswer has run.");
-};
 
 // -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
 // --- courtesy of timmy_i_chen   https://replit.com/@timmy_i_chen/EnchantingSilverTerabyte
 function whichButton(button) {
   console.log("Button " + button + " was clicked.");
+  let selectedAnswer = document.getElementById(button).innerText;
+  console.log(selectedAnswer);
+
+  if (gameReady) {
+    if (selectedAnswer === currentCorrectAnswer) {
+        console.log("You're right!");
+        gameReady = false;
+        nextQuestion();
+    } else {
+        console.log("Nice try...");
+        gameReady = false;
+        nextQuestion();
+    }
+  } else {
+      return;
+  }
+  
 }
 
-const buttons = ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD'];
-
-buttons.forEach(button => document
+buttons.forEach(button => document      // buttons is array of IDs of HTML answer button elements, ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD']
   .getElementById(button)
   .addEventListener('click', () => whichButton(button))
 );
@@ -303,6 +321,24 @@ function nextQuestion(){
         console.log("No more questions");
     }
 }
+
+// -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
+// --- courtesy of timmy_i_chen   https://replit.com/@timmy_i_chen/EnchantingSilverTerabyte
+function whichButton(button) {
+  console.log("Button " + button + " was clicked.");
+}
+
+const buttons = ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD'];
+
+buttons.forEach(button => document
+  .getElementById(button)
+  .addEventListener('click', () => whichButton(button))
+);
+
+
+// -------------  END OF LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
+// -----------------------------------------------------------------------------------------------
+
 
 */
 console.log('Script Ended'); //To_be_deleted.
