@@ -126,8 +126,14 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
 function nextQuestion(){
     if(currentQuestionNumber <= MAX_QUESTION){
         currentQuestion = questionSet[currentQuestionNumber-1].q;
+        currentQuestion = currentQuestion.replace(/&#039;/g, "'");  //Code to correct for JSON single quotes code.
+        currentQuestion = currentQuestion.replace(/&quot;/g, '"');  //Code to correct for JSON double quotes code.
         currentAnswerArray = [...questionSet[currentQuestionNumber-1].a_incorrect, questionSet[currentQuestionNumber-1].a_correct];
         currentAnswerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
+        for ( i = 0; i < currentAnswerArray.length; i++ ) {
+            currentAnswerArray[i] = currentAnswerArray[i].replace(/&#039;/g, "'");     //Code to correct for JSON single quotes code.
+            currentAnswerArray[i] = currentAnswerArray[i].replace(/&quot;/g, '"');     //Code to correct for JSON double quotes code.
+        }
         currentCorrectAnswer = questionSet[currentQuestionNumber-1].a_correct;
         printQuestion(currentQuestion, currentAnswerArray[0], currentAnswerArray[1], currentAnswerArray[2], currentAnswerArray[3]);
         currentQuestionNumber++;
