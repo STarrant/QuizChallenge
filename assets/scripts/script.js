@@ -151,9 +151,33 @@ function checkAnswer(answer) {
     console.log("CheckAnswer has run.");
 };
 
-document.getElementById('qc_btnAnswerA').addEventListener('click', function(){
-    checkAnswer();
-});
+// -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
+
+function colorChanger(color) {
+  box.style.backgroundColor = color;
+}
+
+const colors = ['red', 'green', 'blue', 'yellow'];
+
+colors.forEach(color => document
+  .getElementById(color)
+  .addEventListener('click', () => colorChanger(color))
+);
+
+// --------------------------------------------------------
+function whichButton(button) {
+  console.log("Button " +  + " was clicked.");
+}
+
+const buttons = ['qc_btnAnswerA', 'qc_btnAnswerB', 'qc_btnAnswerC', 'qc_btnAnswerD'];
+
+buttons.forEach(button => document
+  .getElementById(button)
+  .addEventListener('click', () => whichButton(button))
+);
+
+// -------------  END OF LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
+// -----------------------------------------------------------------------------------------------
 
 // Print a new question to the game screen
 function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
