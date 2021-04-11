@@ -94,8 +94,8 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
         return item;
     });
     questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
-    console.log(questionSet);    // To be deleted.
-    //printQuestion(questionSet[0].q, questionSet[0].a_correct, questionSet[0].a_incorrect[0], questionSet[0].a_incorrect[1], questionSet[0].a_incorrect[2]);
+    updateScore();
+    nextQuestion();
 }
 // --- END FETCH QUESTIONS AND PUT IN AN ARRAY ---
 
@@ -158,11 +158,14 @@ function whichButton(button) {
   if (gameReady) {
     if (selectedAnswer === currentCorrectAnswer) {
         console.log("You're right!");
+        currentScore++;
         gameReady = false;
+        updateScore();
         nextQuestion();
     } else {
         console.log("Nice try...");
         gameReady = false;
+        updateScore();
         nextQuestion();
     }
   } else {
@@ -176,9 +179,26 @@ buttons.forEach(button => document      // buttons is array of IDs of HTML answe
   .addEventListener('click', () => whichButton(button))
 );
 
-
 // -------------  END OF LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
 // -----------------------------------------------------------------------------------------------
+
+
+
+
+// -------------  UPDATE THE SCORE AND QUESTION NUMBER -------------------------------------------
+function updateScore() {
+    let questionNumberText = document.getElementById('qc_score');
+    questionNumberText.innerHTML = "Question: " + currentQuestionNumber + " / " + MAX_QUESTION;
+    let scoreText = document.getElementById('qc_questionNum');
+    scoreText.innerHTML = "Score: " + currentScore;
+    console.log(questionNumberText);
+    console.log(scoreText);
+
+}
+
+
+
+// -------------  END OF UPDATE THE SCORE AND QUESTION NUMBER -------------------------------------------
 
 // Print a new question to the game screen
 function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
