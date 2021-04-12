@@ -161,12 +161,12 @@ function whichButton(button) {
         currentScore++;
         gameReady = false;
         updateScore();
-        nextQuestion();
+        setTimeout(() => { nextQuestion(); }, 2000);
     } else {
         console.log("Nice try...");
         gameReady = false;
         updateScore();
-        nextQuestion();
+        setTimeout(() => { nextQuestion(); }, 2000);
     }
   } else {
       return;
