@@ -151,33 +151,80 @@ document.getElementById('scriptTestBtn1').addEventListener('click', function(){
 // -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
 // --- courtesy of timmy_i_chen   https://replit.com/@timmy_i_chen/EnchantingSilverTerabyte
 function whichButton(button) {
-  console.log("Button " + button + " was clicked.");
-  let selectedAnswer = document.getElementById(button).innerText;
-  console.log(selectedAnswer);
-
-  if (gameReady) {
-    if (selectedAnswer === currentCorrectAnswer) {
-        console.log("You're right!");
-        currentScore++;
-        gameReady = false;
-        updateScore();
-        setTimeout(() => { nextQuestion(); }, 2000);
+    console.log("Button " + button + " was clicked.");
+    let selectedAnswer = document.getElementById(button).innerText;
+    console.log(selectedAnswer);
+    if (gameReady) {
+        if (selectedAnswer === currentCorrectAnswer) {
+            console.log("You're right!");
+            document.getElementById(button).classList.add("qc_questionBtnCorrect");
+            currentScore++;
+            gameReady = false;
+            updateScore();
+            setTimeout(() => { nextQuestion(); }, 2000);
+        } else {
+            console.log("Nice try...");
+            document.getElementById(button).classList.add("qc_questionBtnIncorrect");
+            findCorrectButton();
+            gameReady = false;
+            updateScore();
+            setTimeout(() => { nextQuestion(); }, 2000);
+        }
     } else {
-        console.log("Nice try...");
-        gameReady = false;
-        updateScore();
-        setTimeout(() => { nextQuestion(); }, 2000);
+        return;
     }
-  } else {
-      return;
-  }
-  
 }
 
 buttons.forEach(button => document      // buttons is array of IDs of HTML answer button elements, ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD']
-  .getElementById(button)
-  .addEventListener('click', () => whichButton(button))
+    .getElementById(button)
+    .addEventListener('click', () => whichButton(button))
 );
+
+function findCorrectButton(){
+    console.log('script started find correct button');
+    let answerA = document.getElementById('qc_txtAnswerA');
+    let answerAText = answerA.innerHTML;
+    if (answerAText == currentCorrectAnswer){
+        answerA.classList.add("qc_questionBtnCorrect");
+        console.log('checkA');
+    } else {
+        return; 
+    }
+    let answerB = document.getElementById('qc_txtAnswerB');
+    let answerBText = answerB.innerHTML;
+    if (answerBText == currentCorrectAnswer){
+        answerB.classList.add("qc_questionBtnCorrect");
+        console.log('checkB');
+    } else {
+        return; 
+    }
+    let answerC = document.getElementById('qc_txtAnswerC');
+    let answerCText = answerC.innerHTML;
+    if (answerCText == currentCorrectAnswer){
+        answerC.classList.add("qc_questionBtnCorrect");
+        console.log('checkC');
+    } else {
+        return; 
+    }
+    let answerD = document.getElementById('qc_txtAnswerD');
+    let answerDText = answerD.innerHTML;
+    if (answerDText == currentCorrectAnswer){
+        answerD.classList.add("qc_questionBtnCorrect");
+        console.log('checkD');
+    } else {
+        return; 
+    }
+    console.log("AnswerA = " + AnswerA + "    AnswerAText = " + answerAText);
+    console.log("AnswerB = " + AnswerB + "    AnswerBText = " + answerBText);
+    console.log("AnswerC = " + AnswerC + "    AnswerCText = " + answerCText);
+    console.log("AnswerD = " + AnswerD + "    AnswerDText = " + answerDText);
+}
+
+
+//  Test script for find correct button.
+document.getElementById('scriptTestBtn2').addEventListener('click', function(){
+    findCorrectButton();
+});
 
 // -------------  END OF LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
 // -----------------------------------------------------------------------------------------------
