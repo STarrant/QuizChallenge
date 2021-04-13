@@ -167,6 +167,19 @@ buttons.forEach(button => document      // buttons is array of IDs of HTML answe
     .addEventListener('click', () => whichButton(button))
 );
 
+
+// --- FUNCTION TO FIND THE CORRECT ANSWER BUTTON AND ADD 'CORRECT' STYLE CLASS
+function findCorrectAnswer() {
+    let correctAnswer = currentCorrectAnswer;   //temporary variable assigned to the current correct answer.
+    let answerArray = currentAnswerArray;       //temporary variable assigned to the array of answers after randomisation.
+    let buttonIDs = buttons;                    //temporary variable assigned to the array of button IDs.
+    for (i = 0; i < 4; i++) {                   //For each answer button from index 0 to 3..
+        if(correctAnswer === answerArray[i]) {  // ..check if the button answer is equal to the correct answer..
+            document.getElementById(buttonIDs[i]).classList.add('qc_questionBtnCorrect');  // ..add the 'correct' styling class to this button. 
+        }
+    }
+}
+
 function findCorrectButton(){
     console.log('script started find correct button');
     let answerA = document.getElementById('qc_txtAnswerA');
@@ -210,7 +223,7 @@ function findCorrectButton(){
 
 //  Test script for find correct button. TO BE DELETED
 document.getElementById('scriptTestBtn2').addEventListener('click', function(){
-    findCorrectButton();
+    findCorrectAnswer();
 });
 
 
