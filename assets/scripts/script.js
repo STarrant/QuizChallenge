@@ -110,6 +110,7 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
     });
     questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
     updateScore();
+    updateQuestionNumber();
     nextQuestion();
 }
 
@@ -121,6 +122,7 @@ function nextQuestion(){
         currentAnswerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
         currentCorrectAnswer = questionSet[currentQuestionNumber-1].a_correct;
         printQuestion(currentQuestion, currentAnswerArray[0], currentAnswerArray[1], currentAnswerArray[2], currentAnswerArray[3]);
+        updateQuestionNumber();
         gameReady = true;
         currentQuestionNumber++;
     } else {
@@ -186,15 +188,18 @@ document.getElementById('scriptTestBtn2').addEventListener('click', function(){
 });
 
 
-// ---  UPDATE THE SCORE AND QUESTION NUMBER ---
+// ---  UPDATE THE SCORE ---
 function updateScore() {
-    let questionNumberText = document.getElementById('qc_score');
-    questionNumberText.innerHTML = "Question: " + currentQuestionNumber + " / " + MAX_QUESTION;
     let scoreText = document.getElementById('qc_questionNum');
     scoreText.innerHTML = "Score: " + currentScore;
-    console.log(questionNumberText);
-    console.log(scoreText);
 }
+
+// ---  UPDATE THE QUESTION NUMBER ---
+function updateQuestionNumber() {
+    let questionNumberText = document.getElementById('qc_score');
+    questionNumberText.innerHTML = "Question: " + currentQuestionNumber + " / " + MAX_QUESTION;
+}
+
 
 // --- PRINT A QUESTION AND ANSWERS TO THE GAME SCREEN
 // --- BUGFIX - Text strings are written to .innerHTML rather than textContent due to HTML special character codes being displayed.
