@@ -216,7 +216,13 @@ Many bugs were encountered during the development of the project - all admittedl
 
 ### Development Bugs
 
-* The opentdb api was very, very difficult to get working as a JavaScript learner. I had serious difficulty fetching the JSON and storing this question data in an array of objects to be used in the quiz loop.
+* The opentdb api was very, very difficult to get working as a JavaScript learner. I had serious difficulty 
+fetching the JSON and storing this question data in an array of objects to be used in the quiz loop.
+* Special HTML character codes were being displayed in the question and answer fields. E.g. &quot;, &#039;. 
+Code was initially written in to use array.replace() to find and replace them out. The actual solution was 
+to write the text strings from JS to HTML targetting the .innerHTML rather than .textContent. This avoided 
+the information being passed to the browser inside quotes as a string and thus was interpreted as a special 
+character code rather than a string.
 
 ### Testing Bugs
 
