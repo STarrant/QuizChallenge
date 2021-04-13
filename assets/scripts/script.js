@@ -127,6 +127,7 @@ function nextQuestion(){
         currentQuestionNumber++;
     } else {
         console.log("No more questions");
+        finalScore();
     }
 }
 
@@ -175,12 +176,6 @@ function findCorrectAnswer() {
     }
 }
 
-//  Test script for find correct button. TO BE DELETED
-document.getElementById('scriptTestBtn2').addEventListener('click', function(){
-    resetButtonColors();
-});
-
-
 // ---  UPDATE THE SCORE ---
 function updateScore() {
     let scoreText = document.getElementById('qc_questionNum');
@@ -224,6 +219,26 @@ function resetButtonColors() {
         incorrectButtons[i].classList.remove('qc_questionBtnIncorrect');
     }
 }
+
+// --- FINAL SCORE FUNCTION ---
+
+function finalScore() {
+    let finalScoreText = "Your final score is " + currentScore + " / " + MAX_QUESTION + " questions correct.";
+    let scorePercentage = (currentScore/MAX_QUESTION) * 100;
+    scorePercentage = scorePercentage.toFixed(2);
+    let finalScorePercentage = "You got " + scorePercentage + "% of the questions right.";
+    document.getElementById('qc_finalScore').textContent = finalScoreText;
+    document.getElementById('qc_finalPercent').textContent = finalScorePercentage;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+//                                         TEST CODE SECTION - ALL TO BE DELETED
+// ----------------------------------------------------------------------------------------------------------------------------------
+
+//  Test script for find correct button. TO BE DELETED
+document.getElementById('scriptTestBtn2').addEventListener('click', function(){
+    finalScore();
+});
 
 
 //   --------------------------------- Tested Code for Category Mapping to an Option List --------------------------------
