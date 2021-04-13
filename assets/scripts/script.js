@@ -25,6 +25,30 @@ window.onload = function() {
   getCategories();              // Function call to pull quiz categories from OpenTDB.com
 };
 
+// --- FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
+
+function getCategories(){fetch('https://opentdb.com/api_category.php')  //Fetch the available categories from OpenTDB.com.
+    .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
+    .then(data => categoryJSONToHTMLOptions(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
+}
+
+function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
+    let opentdbCategoriesArray = opentdbCategoriesObject.trivia_categories;   //New array opentdbCategoriesArray is assigned to the trivia_categories array value.
+    var categoryArray = opentdbCategoriesArray.map( function(category) {   //Another new array categoryArray is mapped to the values of the opentdbCategories array.
+        var item = {
+            "id": category.id,
+            "name": category.name
+            }
+        return item;
+    });
+
+    var htmlCategoryList = categoryArray.map(function (item) {              //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
+        return '<option value="' + item.id + '"> ' + item.name + '</option>';  
+    }).join('');
+    htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;  //An all categories option is prepended and set to selected to the string.
+    document.getElementById('qc_category').innerHTML = htmlCategoryList;   //This string is inserted to the HTML categories list in index.html.
+}
+
 // --- START GAME FUNCTION ---
 
 function startGame() {
@@ -61,20 +85,11 @@ function startGame() {
     }
     //Call the getQuestions function with the assembled strings.
     getQuestions(numQuestionsString, categoryString, difficultyString);
-    //console.log(MAX_QUESTION);
-    //console.log(numQuestionsString);
-    //console.log(currentCategory);
-    //console.log(categoryString);
-    //console.log(currentDifficulty);
-    //console.log(difficultyString);
-    //console.log(`https://opentdb.com/api.php?`+ numQuestionsString + categoryString + difficultyString +`&type=multiple`)
 }
-
 
 
 // --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
 document.getElementById('qc_startGame').addEventListener('click', function(){
-    //getQuestions();    //Commented out for test.
     startGame();
 });
 
@@ -97,35 +112,6 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
     updateScore();
     nextQuestion();
 }
-// --- END FETCH QUESTIONS AND PUT IN AN ARRAY ---
-
-
-
-
-// --- FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
-
-function getCategories(){fetch('https://opentdb.com/api_category.php')  //Fetch the available categories from OpenTDB.com.
-    .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
-    .then(data => categoryJSONToHTMLOptions(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
-}
-
-function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
-    let opentdbCategoriesArray = opentdbCategoriesObject.trivia_categories;   //New array opentdbCategoriesArray is assigned to the trivia_categories array value.
-    var categoryArray = opentdbCategoriesArray.map( function(category) {   //Another new array categoryArray is mapped to the values of the opentdbCategories array.
-        var item = {
-            "id": category.id,
-            "name": category.name
-            }
-        return item;
-    });
-
-    var htmlCategoryList = categoryArray.map(function (item) {              //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
-        return '<option value="' + item.id + '"> ' + item.name + '</option>';  
-    }).join('');
-    htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;  //An all categories option is prepended and set to selected to the string.
-    document.getElementById('qc_category').innerHTML = htmlCategoryList;   //This string is inserted to the HTML categories list in index.html.
-}
-// --- END FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
 
 // --- NEXT QUESTION FUNCTION ---
 function nextQuestion(){
@@ -142,10 +128,11 @@ function nextQuestion(){
     }
 }
 
-document.getElementById('scriptTestBtn1').addEventListener('click', function(){
-    //getQuestions();    //Commented out for test.
-    nextQuestion();
-});
+
+//   ---   TO BE DELETED   ---
+//document.getElementById('scriptTestBtn1').addEventListener('click', function(){
+//    nextQuestion();
+//});
 
 
 // -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
@@ -174,7 +161,7 @@ function whichButton(button) {
         return;
     }
 }
-
+// --- EVENT LISTENER FOR ANSWER BUTTONS ---
 buttons.forEach(button => document      // buttons is array of IDs of HTML answer button elements, ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD']
     .getElementById(button)
     .addEventListener('click', () => whichButton(button))
@@ -221,18 +208,13 @@ function findCorrectButton(){
 }
 
 
-//  Test script for find correct button.
+//  Test script for find correct button. TO BE DELETED
 document.getElementById('scriptTestBtn2').addEventListener('click', function(){
     findCorrectButton();
 });
 
-// -------------  END OF LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
-// -----------------------------------------------------------------------------------------------
 
-
-
-
-// -------------  UPDATE THE SCORE AND QUESTION NUMBER -------------------------------------------
+// ---  UPDATE THE SCORE AND QUESTION NUMBER ---
 function updateScore() {
     let questionNumberText = document.getElementById('qc_score');
     questionNumberText.innerHTML = "Question: " + currentQuestionNumber + " / " + MAX_QUESTION;
@@ -240,14 +222,10 @@ function updateScore() {
     scoreText.innerHTML = "Score: " + currentScore;
     console.log(questionNumberText);
     console.log(scoreText);
-
 }
 
-
-
-// -------------  END OF UPDATE THE SCORE AND QUESTION NUMBER -------------------------------------------
-
-// Print a new question to the game screen
+// --- PRINT A QUESTION AND ANSWERS TO THE GAME SCREEN
+// --- BUGFIX - Text strings are written to .innerHTML rather than textContent due to HTML special character codes being displayed.
 function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
     console.log('Start printAnswers()'); //To_be_deleted.
     question = document.getElementById('qc_txtQuestion');
