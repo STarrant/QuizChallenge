@@ -117,6 +117,7 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
 // --- NEXT QUESTION FUNCTION ---
 function nextQuestion(){
     if(currentQuestionNumber <= MAX_QUESTION){
+        resetButtonColors();
         currentQuestion = questionSet[currentQuestionNumber-1].q;
         currentAnswerArray = [...questionSet[currentQuestionNumber-1].a_incorrect, questionSet[currentQuestionNumber-1].a_correct];
         currentAnswerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
@@ -184,7 +185,7 @@ function findCorrectAnswer() {
 
 //  Test script for find correct button. TO BE DELETED
 document.getElementById('scriptTestBtn2').addEventListener('click', function(){
-    findCorrectAnswer();
+    resetButtonColors();
 });
 
 
@@ -217,6 +218,20 @@ function printQuestion(questionText, answerAText, answerBText, answerCText, answ
     answerD.innerHTML = answerDText;
 }
 
+
+// --- FIND ANY BUTTONS STYLED AS CORRECT OR INCORRECT AND REMOVE THE STYLE CLASSES ---
+function resetButtonColors() {
+    let correctButtons = document.getElementsByClassName('qc_questionBtnCorrect');
+    console.log(correctButtons);
+    for(let i = 0; i < correctButtons.length; i++) {
+        correctButtons[i].classList.remove('qc_questionBtnCorrect');
+    }
+    let incorrectButtons = document.getElementsByClassName('qc_questionBtnIncorrect');
+    console.log(incorrectButtons);
+    for(let i = 0; i < incorrectButtons.length; i++) {
+        incorrectButtons[i].classList.remove('qc_questionBtnIncorrect');
+    }
+}
 
 
 //   --------------------------------- Tested Code for Category Mapping to an Option List --------------------------------
