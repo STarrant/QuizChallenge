@@ -152,7 +152,7 @@ function whichButton(button) {
         } else {
             console.log("Nice try...");
             document.getElementById(button).classList.add("qc_questionBtnIncorrect");
-            findCorrectButton();
+            findCorrectAnswer()
             gameReady = false;
             updateScore();
             setTimeout(() => { nextQuestion(); }, 2000);
