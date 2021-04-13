@@ -87,7 +87,6 @@ function startGame() {
     getQuestions(numQuestionsString, categoryString, difficultyString);
 }
 
-
 // --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
 document.getElementById('qc_startGame').addEventListener('click', function(){
     startGame();
@@ -131,13 +130,6 @@ function nextQuestion(){
     }
 }
 
-
-//   ---   TO BE DELETED   ---
-//document.getElementById('scriptTestBtn1').addEventListener('click', function(){
-//    nextQuestion();
-//});
-
-
 // -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
 // --- courtesy of timmy_i_chen   https://replit.com/@timmy_i_chen/EnchantingSilverTerabyte
 function whichButton(button) {
@@ -155,9 +147,9 @@ function whichButton(button) {
         } else {
             console.log("Nice try...");
             document.getElementById(button).classList.add("qc_questionBtnIncorrect");
-            findCorrectAnswer();
             gameReady = false;
             updateScore();
+            setTimeout(() => { findCorrectAnswer(); }, 1000);
             setTimeout(() => { nextQuestion(); }, 2000);
         }
     } else {
