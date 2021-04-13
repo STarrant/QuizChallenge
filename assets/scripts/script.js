@@ -152,7 +152,7 @@ function whichButton(button) {
         } else {
             console.log("Nice try...");
             document.getElementById(button).classList.add("qc_questionBtnIncorrect");
-            findCorrectAnswer()
+            findCorrectAnswer();
             gameReady = false;
             updateScore();
             setTimeout(() => { nextQuestion(); }, 2000);
@@ -179,47 +179,6 @@ function findCorrectAnswer() {
         }
     }
 }
-
-function findCorrectButton(){
-    console.log('script started find correct button');
-    let answerA = document.getElementById('qc_txtAnswerA');
-    let answerAText = answerA.innerHTML;
-    if (answerAText == currentCorrectAnswer){
-        answerA.classList.add("qc_questionBtnCorrect");
-        console.log('checkA');
-    } else {
-        return; 
-    }
-    let answerB = document.getElementById('qc_txtAnswerB');
-    let answerBText = answerB.innerHTML;
-    if (answerBText == currentCorrectAnswer){
-        answerB.classList.add("qc_questionBtnCorrect");
-        console.log('checkB');
-    } else {
-        return; 
-    }
-    let answerC = document.getElementById('qc_txtAnswerC');
-    let answerCText = answerC.innerHTML;
-    if (answerCText == currentCorrectAnswer){
-        answerC.classList.add("qc_questionBtnCorrect");
-        console.log('checkC');
-    } else {
-        return; 
-    }
-    let answerD = document.getElementById('qc_txtAnswerD');
-    let answerDText = answerD.innerHTML;
-    if (answerDText == currentCorrectAnswer){
-        answerD.classList.add("qc_questionBtnCorrect");
-        console.log('checkD');
-    } else {
-        return; 
-    }
-    console.log("AnswerA = " + AnswerA + "    AnswerAText = " + answerAText);
-    console.log("AnswerB = " + AnswerB + "    AnswerBText = " + answerBText);
-    console.log("AnswerC = " + AnswerC + "    AnswerCText = " + answerCText);
-    console.log("AnswerD = " + AnswerD + "    AnswerDText = " + answerDText);
-}
-
 
 //  Test script for find correct button. TO BE DELETED
 document.getElementById('scriptTestBtn2').addEventListener('click', function(){
