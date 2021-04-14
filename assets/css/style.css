@@ -31,7 +31,9 @@
 
 
 /* General */
-
+.qc_hide{
+    display: none;
+}
 
 
 html,
@@ -50,23 +52,23 @@ body {
   width: 100vw;
 }
 
-.qc_hide{
-    display: none;
-}
+
+
 
 #qc_startScreen,
 #qc_questionScreen {
-    /*background-color: #efefef;*/
+    background-color: #efefef;
     height: 50vh;
     width: 100vw;
     padding: 20px;
     
-    display: flex;
+    /*display: flex;                  BUG - CAUSES AN ERROR HIDING PAGE SECTIONS!!! */
     justify-content: center;
     align-items: center;
     max-width: 1000px;
     margin: auto;
 }
+
 
 /* General Button Styling */
 .qc_questionBtn {
@@ -130,3 +132,4 @@ body {
    
    
 }
+

@@ -231,6 +231,42 @@ function finalScore() {
     document.getElementById('qc_finalPercent').textContent = finalScorePercentage;
 }
 
+// --- FUNCTIONS TO HIDE SCREEN ELEMENTS ---
+
+function startScreen() {
+    document.getElementById('qc_startScreen').classList.remove('qc_hide');
+    document.getElementById('qc_questionScreen').classList.add('qc_hide');
+    //document.getElementById('qc_questionScreenRow').classList.add('qc_hide');
+    document.getElementById('qc_scoreScreen').classList.add('qc_hide');
+    console.log('Function startScreen()')
+    console.log(document.getElementById('qc_startScreen').classList);
+    console.log(document.getElementById('qc_questionScreen').classList);
+    console.log(document.getElementById('qc_scoreScreen').classList);
+}
+
+function questionScreen() {
+    document.getElementById('qc_startScreen').classList.add('qc_hide');
+    document.getElementById('qc_questionScreen').classList.remove('qc_hide');
+    //document.getElementById('qc_questionScreenRow').classList.remove('qc_hide');
+    document.getElementById('qc_scoreScreen').classList.add('qc_hide');
+    console.log(document.getElementById('qc_startScreen').classList);
+    console.log(document.getElementById('qc_questionScreen').classList);
+    console.log(document.getElementById('qc_scoreScreen').classList);
+}
+
+function scoreScreen() {
+    document.getElementById('qc_startScreen').classList.add('qc_hide');
+    document.getElementById('qc_questionScreen').classList.add('qc_hide');
+    //document.getElementById('qc_questionScreenRow').classList.add('qc_hide');
+    document.getElementById('qc_scoreScreen').classList.remove('qc_hide');
+    console.log(document.getElementById('qc_startScreen').classList);
+    console.log(document.getElementById('qc_questionScreen').classList);
+    console.log(document.getElementById('qc_scoreScreen').classList);
+}
+
+
+
+
 // ----------------------------------------------------------------------------------------------------------------------------------
 //                                         TEST CODE SECTION - ALL TO BE DELETED
 // ----------------------------------------------------------------------------------------------------------------------------------
@@ -240,6 +276,17 @@ document.getElementById('scriptTestBtn2').addEventListener('click', function(){
     finalScore();
 });
 
+document.getElementById('scriptTestBtnA').addEventListener('click', function(){
+    startScreen();
+});
+
+document.getElementById('scriptTestBtnB').addEventListener('click', function(){
+    questionScreen();
+});
+
+document.getElementById('scriptTestBtnC').addEventListener('click', function(){
+    scoreScreen();
+});
 
 //   --------------------------------- Tested Code for Category Mapping to an Option List --------------------------------
 
