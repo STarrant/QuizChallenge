@@ -54,31 +54,55 @@
         </div>
     </header>
     <section class="qc_main">
+
+
+
         <!-- Start Screen -->
-        <div id="qc_startScreen">
-            <h3>Start a New Game?</h3>
-            <label for="qc_numQuestions">How many questions do you want:</label>
-            <select name="qc_numQuestions" id="qc_numQuestions">
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="7">7</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-            </select>
-            <!-- Category Selection Dropdown -->
-            <!-- Categories are loaded at startup from script.js -->
-            <label for="qc_category">Which topics do you want:</label>
-            <select name="qc_category" id="qc_category">
-                <option value="Err" selected>Error - Categories Not Loaded</option>
-            </select>
-            <select name="qc_difficulty" id="qc_difficulty">
-                <option value="All">All Levels</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-            <button id="qc_startGame">Start</button>
+        <div id="qc_startScreen" class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <h3>Start a New Game?</h3>
+                </div>
+
+                <div class="col-6">
+                    <label for="qc_numQuestions">Number of questions:</label>
+                    <select name="qc_numQuestions" id="qc_numQuestions">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="7">7</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+                
+                <div class="col-6">
+                    <!-- Category Selection Dropdown -->
+                    <!-- Categories are loaded at startup from script.js -->
+                    <label for="qc_category">Question categories:</label>
+                    <select name="qc_category" id="qc_category">
+                        <option value="Err" selected>Error - Categories Not Loaded</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label for="qc_difficulty">Difficulty level:</label>
+                    <select name="qc_difficulty" id="qc_difficulty">
+                        <option value="All">All Levels</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <button id="qc_startGame">Start</button>
+                </div>
+            </div>
         </div>
+
+
+
         <!-- Question Screen -->
         <div id="qc_questionScreen" class="container-fluid">
             <div class="row">
