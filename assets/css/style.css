@@ -39,18 +39,40 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body,
 header {
-  background: #efefef;
+    background: #FDF1D3;
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Quiz Challenge Main Styles */
+
+.qc_logobgColor {
+    background: url("../images/qc_logo_color_yellowbg.png");
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-height: 75px;
+}
+
+.qc_logobgHighContrast {
+    background: url("../images/qc_logo_highcontrast.png");
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-height: 75px;
 }
 
 

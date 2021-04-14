@@ -272,6 +272,26 @@ function scoreScreen() {
 }
 
 
+// ----------------------------------------------------------------------------------------------------------------------------------
+//                                         COLOR EFFECTS
+// ----------------------------------------------------------------------------------------------------------------------------------
+
+function colorMode() {
+    // --- Change the logo background image ---
+    document.getElementById('qc_logo').classList.remove('qc_logobgHighContrast');
+    document.getElementById('qc_logo').classList.add('qc_logobgColor');
+    
+}
+
+function highContrastMode() {
+    // --- Change the logo background image ---
+    document.getElementById('qc_logo').classList.add('qc_logobgHighContrast');
+    document.getElementById('qc_logo').classList.remove('qc_logobgColor');
+    
+}
+
+
+
 
 
 // ----------------------------------------------------------------------------------------------------------------------------------
@@ -293,6 +313,14 @@ document.getElementById('scriptTestBtnB').addEventListener('click', function(){
 
 document.getElementById('scriptTestBtnC').addEventListener('click', function(){
     scoreScreen();
+});
+
+document.getElementById('scriptTestColor').addEventListener('click', function(){
+    colorMode();
+});
+
+document.getElementById('scriptTestHC').addEventListener('click', function(){
+    highContrastMode();
 });
 
 //   --------------------------------- Tested Code for Category Mapping to an Option List --------------------------------
