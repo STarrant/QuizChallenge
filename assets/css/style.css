@@ -62,7 +62,7 @@ body {
     background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
-    max-height: 75px;
+    min-height: 100px;
 }
 
 .qc_logobgHighContrast {
@@ -72,10 +72,15 @@ body {
     background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
-    max-height: 75px;
+    min-height: 100px;
 }
 
-
+.qc_menuColor{
+    padding:        0;
+    margin:         auto;
+    text-align:     center;
+    align-items:    center;
+}
 
 
 /*Credit to Alessandro Incarnati for idea of doing multicolored hr. https://stackoverflow.com/questions/29733780/how-to-style-hr-to-have-multiple-colors*/
