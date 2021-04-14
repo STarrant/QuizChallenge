@@ -23,6 +23,7 @@ let gameReady = false;              //Boolean to prevent an answer button being 
 
 window.onload = function() {
   getCategories();              // Function call to pull quiz categories from OpenTDB.com
+  startScreen();                // Function call to hide show the start screen.
 };
 
 // --- FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
@@ -111,6 +112,7 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
     updateScore();
     updateQuestionNumber();
     nextQuestion();
+    questionScreen();
 }
 
 // --- NEXT QUESTION FUNCTION ---
@@ -229,7 +231,12 @@ function finalScore() {
     let finalScorePercentage = "You got " + scorePercentage + "% of the questions right.";
     document.getElementById('qc_finalScore').textContent = finalScoreText;
     document.getElementById('qc_finalPercent').textContent = finalScorePercentage;
+    scoreScreen();
 }
+
+document.getElementById('qc_playAgain').addEventListener('click', function(){
+    startScreen();
+});
 
 // --- FUNCTIONS TO HIDE SCREEN ELEMENTS ---
 
