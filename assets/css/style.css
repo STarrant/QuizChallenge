@@ -78,6 +78,30 @@ body {
 
 
 
+/*Credit to Alessandro Incarnati for idea of doing multicolored hr. https://stackoverflow.com/questions/29733780/how-to-style-hr-to-have-multiple-colors*/
+/*  Original Code: span { display:block; width:10%; float:left; height:5px;}  .line{width:100%;}  */
+.hr_span{
+    display:    block;
+    width:      14.28%; /* 14.28% = 100% width / 7 colors. */
+    float:      left;
+    height:10px;
+}
+
+.hr_div{
+    width:100%;
+    padding: 0;
+    margin:0;
+}
+
+.bg_color1 {background-color:    #F94144;}    /* Color 1 - Red */
+.bg_color2 {background-color:    #F3722C;}    /* Color 2 - Orange*/
+.bg_color3 {background-color:    #F8961E;}    /* Color 3 - Tangerine*/
+.bg_color4 {background-color:    #F9C74F;}    /* Color 4 - Yellow*/
+.bg_color5 {background-color:    #90BE6D;}    /* Color 5 - Light Green*/
+.bg_color6 {background-color:    #43AA8B;}    /* Color 6 - Sea Green*/
+.bg_color7 {background-color:    #577590;}    /* Color 7 - Slate Blue*/
+
+
 #qc_startScreen,
 #qc_questionScreen {
     background-color: #efefef;
