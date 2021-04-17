@@ -143,7 +143,7 @@ function nextQuestion(){
         gameReady = true;
         currentQuestionNumber++;
     } else {
-        console.log("No more questions");
+        //console.log("No more questions");
         finalScore();
     }
 }
@@ -164,9 +164,10 @@ function whichButton(button) {
             updateScore();
             setTimeout(() => { nextQuestion(); }, 1000);
         } else {
-            console.log("Nice try...");
             document.getElementById(button).classList.add("qc_questionBtnIncorrect");
             gameReady = false;
+            console.log("Nice try...");
+            console.log(currentScore);
             updateScore();
             setTimeout(() => { findCorrectAnswer(); }, 1000);
             setTimeout(() => { nextQuestion(); }, 2000);
@@ -206,7 +207,6 @@ function updateQuestionNumber() {
 // --- PRINT A QUESTION AND ANSWERS TO THE GAME SCREEN
 // --- BUGFIX - Text strings are written to .innerHTML rather than textContent due to HTML special character codes being displayed.
 function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
-    console.log('Start printAnswers()'); //To_be_deleted.
     let question = document.getElementById('qc_txtQuestion');
     question.innerHTML = questionText;
     let answerA = document.getElementById('qc_txtAnswerA');
@@ -223,12 +223,10 @@ function printQuestion(questionText, answerAText, answerBText, answerCText, answ
 // --- FIND ANY BUTTONS STYLED AS CORRECT OR INCORRECT AND REMOVE THE STYLE CLASSES ---
 function resetButtonColors() {
     let correctButtons = document.getElementsByClassName('qc_questionBtnCorrect');
-    console.log(correctButtons);
     for(let i = 0; i < correctButtons.length; i++) {
         correctButtons[i].classList.remove('qc_questionBtnCorrect');
     }
     let incorrectButtons = document.getElementsByClassName('qc_questionBtnIncorrect');
-    console.log(incorrectButtons);
     for(let i = 0; i < incorrectButtons.length; i++) {
         incorrectButtons[i].classList.remove('qc_questionBtnIncorrect');
     }
@@ -253,32 +251,19 @@ function finalScore() {
 function startScreen() {
     document.getElementById('qc_startScreen').classList.remove('qc_hide');
     document.getElementById('qc_questionScreen').classList.add('qc_hide');
-    //document.getElementById('qc_questionScreenRow').classList.add('qc_hide');
     document.getElementById('qc_scoreScreen').classList.add('qc_hide');
-    console.log('Function startScreen()');
-    console.log(document.getElementById('qc_startScreen').classList);
-    console.log(document.getElementById('qc_questionScreen').classList);
-    console.log(document.getElementById('qc_scoreScreen').classList);
 }
 
 function questionScreen() {
     document.getElementById('qc_startScreen').classList.add('qc_hide');
     document.getElementById('qc_questionScreen').classList.remove('qc_hide');
-    //document.getElementById('qc_questionScreenRow').classList.remove('qc_hide');
     document.getElementById('qc_scoreScreen').classList.add('qc_hide');
-    console.log(document.getElementById('qc_startScreen').classList);
-    console.log(document.getElementById('qc_questionScreen').classList);
-    console.log(document.getElementById('qc_scoreScreen').classList);
 }
 
 function scoreScreen() {
     document.getElementById('qc_startScreen').classList.add('qc_hide');
     document.getElementById('qc_questionScreen').classList.add('qc_hide');
-    //document.getElementById('qc_questionScreenRow').classList.add('qc_hide');
     document.getElementById('qc_scoreScreen').classList.remove('qc_hide');
-    console.log(document.getElementById('qc_startScreen').classList);
-    console.log(document.getElementById('qc_questionScreen').classList);
-    console.log(document.getElementById('qc_scoreScreen').classList);
 }
 
 
@@ -290,14 +275,12 @@ function colorMode() {
     // --- Change the logo background image ---
     document.getElementById('qc_logo').classList.remove('qc_logobgHighContrast');
     document.getElementById('qc_logo').classList.add('qc_logobgColor');
-    
 }
 
 function highContrastMode() {
     // --- Change the logo background image ---
     document.getElementById('qc_logo').classList.add('qc_logobgHighContrast');
     document.getElementById('qc_logo').classList.remove('qc_logobgColor');
-    
 }
 
 
