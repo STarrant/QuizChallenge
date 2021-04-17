@@ -65,10 +65,10 @@
                     <h3>Start a New Game?</h3>
                 </div>
 
-                <div class="col-6">
+                <div class="col-12">
                     <label for="qc_numQuestions">Number of questions:</label>
-                    <select name="qc_numQuestions" id="qc_numQuestions">
-                        <option value="3">3</option>
+                    <select name="qc_numQuestions" id="qc_numQuestions" class="form-select" aria-label="Select the number of questions per round">
+                        <option selected value="3">3</option>
                         <option value="5">5</option>
                         <option value="7">7</option>
                         <option value="10">10</option>
@@ -76,18 +76,18 @@
                     </select>
                 </div>
                 
-                <div class="col-6">
+                <div class="col-12">
                     <!-- Category Selection Dropdown -->
                     <!-- Categories are loaded at startup from script.js -->
                     <label for="qc_category">Question categories:</label>
-                    <select name="qc_category" id="qc_category">
+                    <select name="qc_category" id="qc_category" class="form-select" aria-label="Select the question category">
                         <option value="Err" selected>Error - Categories Not Loaded</option>
                     </select>
                 </div>
 
-                <div class="col">
+                <div class="col-12">
                     <label for="qc_difficulty">Difficulty level:</label>
-                    <select name="qc_difficulty" id="qc_difficulty">
+                    <select name="qc_difficulty" id="qc_difficulty" class="form-select" aria-label="Choose the question difficulty level">
                         <option value="All">All Levels</option>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>

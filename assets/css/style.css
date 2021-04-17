@@ -52,6 +52,12 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+h1,
+h2,
+h3 {
+    font-family: 'RocknRoll One', sans-serif;
+}
+
 /* Quiz Challenge Main Styles */
 
 .qc_logobgColor {
