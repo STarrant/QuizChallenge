@@ -89,7 +89,7 @@ function startGame() {
 }
 
 // --- EVENT LISTENER FOR START BUTTON ---
-let startButton = document.getElementById('qc_startGame');
+let startButton = document.getElementById('startGame');
 startButton.addEventListener('click', function(){
     startGame();
 });
