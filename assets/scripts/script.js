@@ -88,11 +88,13 @@ function startGame() {
     getQuestions(numQuestionsString, categoryString, difficultyString);
 }
 
-// --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
-document.getElementById('qc_startGame').addEventListener('click', function(){
+// --- EVENT LISTENER FOR START BUTTON ---
+let startButton = document.getElementById('qc_startGame');
+startButton.addEventListener('click', function(){
     startGame();
 });
 
+// --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
 function getQuestions(numQuestionsString, categoryString, difficultyString){fetch(`https://opentdb.com/api.php?`+ numQuestionsString + categoryString + difficultyString +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
     .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
     .then(data => questionJSONtoArray(data));                          //Promise: call the categoryJSONtoHTMLOptions function.
