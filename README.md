@@ -78,11 +78,15 @@ _________________________________________________
 
 #### Fonts
 
-_____________________________________________________
+* (Google Fonts)[https://fonts.google.com/] has been used to add typographic style to the site.
+With legibilty being a key focus, (Roboto)[https://fonts.google.com/specimen/Roboto] was chosen 
+as the main font with (RocknRoll One)[https://fonts.google.com/specimen/RocknRoll+One] being used 
+for some of the heading text for a more fun font. The main logo was design in Microsoft Word with 
+the Berlin Sans font.
 
 #### Icons
 
-__________________________________________________________
+* (FontAwesome)[https://fontawesome.com/] free icons have been used throughout this project.
 
 #### Colors
 

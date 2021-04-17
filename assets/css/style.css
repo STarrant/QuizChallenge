@@ -1,9 +1,8 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Noto+Sans+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=RocknRoll+One&display=swap');
 
-
-/* font-family: 'Noto Sans SC', sans-serif; */
-/* font-family: 'Libre Baskerville', serif; */
+/* font-family: 'Roboto', sans-serif; */
+/* font-family: 'RocknRoll One', sans-serif; */
 
 /* Colors */
 
@@ -45,6 +44,11 @@ header {
 body {
     height: 100vh;
     width: 100vw;
+}
+
+* {
+    color: #161D24;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Quiz Challenge Main Styles */
