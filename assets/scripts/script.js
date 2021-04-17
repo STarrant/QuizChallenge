@@ -292,6 +292,7 @@ function highContrastMode() {
 // ----------------------------------------------------------------------------------------------------------------------------------
 
 //  Test script for find correct button. TO BE DELETED
+/*
 document.getElementById('scriptTestBtn2').addEventListener('click', function(){
     finalScore();
 });
@@ -315,6 +316,7 @@ document.getElementById('scriptTestColor').addEventListener('click', function(){
 document.getElementById('scriptTestHC').addEventListener('click', function(){
     highContrastMode();
 });
+*/
 
 //   --------------------------------- Tested Code for Category Mapping to an Option List --------------------------------
 
