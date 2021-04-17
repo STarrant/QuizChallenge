@@ -22,8 +22,16 @@ let gameReady = false;              //Boolean to prevent an answer button being 
 // --- FUNCTIONS TO RUN ON LOADING THE PAGE ---
 
 window.onload = function() {
-  getCategories();              // Function call to pull quiz categories from OpenTDB.com
-  startScreen();                // Function call to hide show the start screen.
+    getCategories();              // Function call to pull quiz categories from OpenTDB.com
+    startScreen();                // Function call to hide show the start screen.
+
+    // --- EVENT LISTENERS FOR BUTTONS ---
+    // --- EVENT LISTENER FOR START BUTTON ---
+    let startButton = document.getElementById('startGame');
+    startButton.addEventListener('click', function(){
+        startGame();
+    });
+
 };
 
 // --- FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
@@ -88,11 +96,7 @@ function startGame() {
     getQuestions(numQuestionsString, categoryString, difficultyString);
 }
 
-// --- EVENT LISTENER FOR START BUTTON ---
-let startButton = document.getElementById('startGame');
-startButton.addEventListener('click', function(){
-    startGame();
-});
+
 
 // --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
 function getQuestions(numQuestionsString, categoryString, difficultyString){fetch(`https://opentdb.com/api.php?`+ numQuestionsString + categoryString + difficultyString +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
