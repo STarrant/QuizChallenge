@@ -25,11 +25,20 @@ window.onload = function() {
     getCategories();              // Function call to pull quiz categories from OpenTDB.com
     startScreen();                // Function call to hide show the start screen.
 
-    // --- EVENT LISTENERS FOR BUTTONS ---
     // --- EVENT LISTENER FOR START BUTTON ---
-    let startButton = document.getElementById('startGame');
-    startButton.addEventListener('click', function(){
+    document.getElementById('startGame').addEventListener('click', function(){
         startGame();
+    });
+
+    // --- EVENT LISTENER FOR ANSWER BUTTONS ---
+    buttons.forEach(button => document      // buttons is array of IDs of HTML answer button elements, ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD']
+        .getElementById(button)
+        .addEventListener('click', () => whichButton(button))
+    );
+
+    // --- EVENT LISTENER FOR PLAY AGAIN BUTTON ---
+    document.getElementById('qc_playAgain').addEventListener('click', function(){
+        startScreen();
     });
 
 };
@@ -165,11 +174,7 @@ function whichButton(button) {
         return;
     }
 }
-// --- EVENT LISTENER FOR ANSWER BUTTONS ---
-buttons.forEach(button => document      // buttons is array of IDs of HTML answer button elements, ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD']
-    .getElementById(button)
-    .addEventListener('click', () => whichButton(button))
-);
+
 
 
 // --- FUNCTION TO FIND THE CORRECT ANSWER BUTTON AND ADD 'CORRECT' STYLE CLASS
@@ -240,9 +245,7 @@ function finalScore() {
     scoreScreen();
 }
 
-document.getElementById('qc_playAgain').addEventListener('click', function(){
-    startScreen();
-});
+
 
 // --- FUNCTIONS TO HIDE SCREEN ELEMENTS ---
 

@@ -223,10 +223,14 @@ Code was initially written in to use array.replace() to find and replace them ou
 to write the text strings from JS to HTML targetting the .innerHTML rather than .textContent. This avoided 
 the information being passed to the browser inside quotes as a string and thus was interpreted as a special 
 character code rather than a string.
-* Deploying to GitHub Pages caused some difficulty where JS files were not being loaded. The was corrected by
+* Deploying to GitHub Pages caused soSme difficulty where JS files were not being loaded. The was corrected by
  removing a preceding '/' from the source link.
 * A number of minor warnings were picked up by [JSHint.com](https://jshint.com/) such as missing semicolons and
 undeclared variables. These were amended as found and documented with 'Fix' commits.
+* On GitHub pages, the eventlisteners for buttons threw up a 'cannot read property of null' issue during testing.
+A solution was found on [StackOverflow](https://stackoverflow.com/questions/26107125/cannot-read-property-addeventlistener-of-null).
+By moving event listeners into the window.onload function, the event listeners would not be called before the page had loaded.
+
 
 ### Testing Bugs
 
