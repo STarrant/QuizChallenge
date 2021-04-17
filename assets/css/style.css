@@ -145,8 +145,9 @@ nav a {
 }
 
 #qc_startScreen,
-#qc_questionScreen {
-    background-color: #efefef;
+#qc_questionScreen,
+#qc_scoreScreen {
+    background-color: hsla(43, 91%, 91%, 60%);
     height: 50vh;
     width: 100vw;
     padding: 20px;
@@ -156,6 +157,9 @@ nav a {
     align-items: center;
     max-width: 1000px;
     margin: auto;
+
+    border: 3px solid #43AA8B;
+    border-radius: 15px;
 }
 
 
