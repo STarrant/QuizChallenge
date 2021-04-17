@@ -30,7 +30,7 @@ window.onload = function() {
 
 function getCategories(){fetch('https://opentdb.com/api_category.php')  //Fetch the available categories from OpenTDB.com.
     .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
-    .then(data => categoryJSONToHTMLOptions(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
+    .then(data => categoryJSONToHTMLOptions(data));                          //Promise: call the categoryJSONtoHTMLOptions function.
 }
 
 function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
@@ -95,7 +95,7 @@ document.getElementById('qc_startGame').addEventListener('click', function(){
 
 function getQuestions(numQuestionsString, categoryString, difficultyString){fetch(`https://opentdb.com/api.php?`+ numQuestionsString + categoryString + difficultyString +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
     .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
-    .then(data => questionJSONtoArray(data))                          //Promise: call the categoryJSONtoHTMLOptions function.
+    .then(data => questionJSONtoArray(data));                          //Promise: call the categoryJSONtoHTMLOptions function.
 }
 
 function questionJSONtoArray(opentdbQuestionObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
@@ -105,7 +105,7 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
             "q": questions.question,
             "a_correct": questions.correct_answer,
             "a_incorrect": questions.incorrect_answers
-            }
+            };
         return item;
     });
     questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
@@ -171,7 +171,7 @@ function findCorrectAnswer() {
     let correctAnswer = currentCorrectAnswer;   //temporary variable assigned to the current correct answer.
     let answerArray = currentAnswerArray;       //temporary variable assigned to the array of answers after randomisation.
     let buttonIDs = buttons;                    //temporary variable assigned to the array of button IDs.
-    for (i = 0; i < 4; i++) {                   //For each answer button from index 0 to 3..
+    for (let i = 0; i < 4; i++) {                   //For each answer button from index 0 to 3..
         if(correctAnswer === answerArray[i]) {  // ..check if the button answer is equal to the correct answer..
             document.getElementById(buttonIDs[i]).classList.add('qc_questionBtnCorrect');  // ..add the 'correct' styling class to this button. 
         }
@@ -195,15 +195,15 @@ function updateQuestionNumber() {
 // --- BUGFIX - Text strings are written to .innerHTML rather than textContent due to HTML special character codes being displayed.
 function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
     console.log('Start printAnswers()'); //To_be_deleted.
-    question = document.getElementById('qc_txtQuestion');
+    let question = document.getElementById('qc_txtQuestion');
     question.innerHTML = questionText;
-    answerA = document.getElementById('qc_txtAnswerA');
+    let answerA = document.getElementById('qc_txtAnswerA');
     answerA.innerHTML = answerAText;
-    answerB = document.getElementById('qc_txtAnswerB');
+    let answerB = document.getElementById('qc_txtAnswerB');
     answerB.innerHTML = answerBText;
-    answerC = document.getElementById('qc_txtAnswerC');
+    let answerC = document.getElementById('qc_txtAnswerC');
     answerC.innerHTML = answerCText;
-    answerD = document.getElementById('qc_txtAnswerD');
+    let answerD = document.getElementById('qc_txtAnswerD');
     answerD.innerHTML = answerDText;
 }
 
@@ -245,7 +245,7 @@ function startScreen() {
     document.getElementById('qc_questionScreen').classList.add('qc_hide');
     //document.getElementById('qc_questionScreenRow').classList.add('qc_hide');
     document.getElementById('qc_scoreScreen').classList.add('qc_hide');
-    console.log('Function startScreen()')
+    console.log('Function startScreen()');
     console.log(document.getElementById('qc_startScreen').classList);
     console.log(document.getElementById('qc_questionScreen').classList);
     console.log(document.getElementById('qc_scoreScreen').classList);
