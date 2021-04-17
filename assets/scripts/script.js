@@ -159,9 +159,10 @@ function whichButton(button) {
             console.log("You're right!");
             document.getElementById(button).classList.add("qc_questionBtnCorrect");
             currentScore++;
+            console.log(currentScore);
             gameReady = false;
             updateScore();
-            setTimeout(() => { nextQuestion(); }, 2000);
+            setTimeout(() => { nextQuestion(); }, 1000);
         } else {
             console.log("Nice try...");
             document.getElementById(button).classList.add("qc_questionBtnIncorrect");
