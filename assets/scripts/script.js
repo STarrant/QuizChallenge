@@ -161,6 +161,7 @@ function whichButton(button) {
             currentScore++;
             console.log(currentScore);
             gameReady = false;
+            soundCorrect();
             updateScore();
             setTimeout(() => { nextQuestion(); }, 1000);
         } else {
@@ -168,6 +169,7 @@ function whichButton(button) {
             gameReady = false;
             console.log("Nice try...");
             console.log(currentScore);
+            soundIncorrect();
             updateScore();
             setTimeout(() => { findCorrectAnswer(); }, 1000);
             setTimeout(() => { nextQuestion(); }, 2000);
@@ -283,9 +285,21 @@ function highContrastMode() {
     document.getElementById('qc_logo').classList.remove('qc_logobgColor');
 }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+// --- AUDIO EFFECTS ---
+//-----------------------------------------------------------------------------------------------------------------------------------
 
+// Credit:  Code here taken from answer by Uri (https://stackoverflow.com/users/378594/uri) in question 9419263 (https://stackoverflow.com/questions/9419263/how-to-play-audio)
 
+function soundCorrect() {
+    let audio = new Audio('/assets/audio/335908__littlerainyseasons__correct.mp3');
+    audio.play();
+}
 
+function soundIncorrect() {
+    let audio = new Audio('/assets/audio/196106_aiwha_ding.mp3');
+    audio.play();
+}
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 //                                         TEST CODE SECTION - ALL TO BE DELETED
