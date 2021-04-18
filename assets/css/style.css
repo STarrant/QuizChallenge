@@ -15,6 +15,7 @@
  color: #43AA8B;    /* Color 6 - Sea Green*/
  color: #577590;    /* Color 7 - Slate Blue*/
  color: #efefef;    /* Color BG - Off-White Background*/
+ color: #CC7306;    /* Color 3 - Tangerine -25% */
  color: #2B3A48;    /* Color 7 -50%*/
  color: #161D24;    /* Color 7 -75%*/
  color: #FDF1D3;    /* Color 4 +75%  Off-yellow for title background*/
@@ -142,18 +143,43 @@ h3 {
     border-radius: 15px;
 }
 
-
 /* General Button Styling */
-.qc_headerBtn {
-    background-color: #43AA8B !important;    /* Color 6 - Sea Green*/
-    color: #ffffff !important;
+.btn-qc-standard {
+    background-color: #F8961E !important;
+    color: #2B3A48 !important;
     border: 2px solid #2B3A48 !important;
-    box-shadow: 0 5px gray !important;
-    border-radius: 5px !important;
+    box-shadow: 0 7px #999 !important;
+    border-radius: 0.5rem !important;
 }
 
+.btn-qc-standard:active {
+    background-color: #F8961E !important;
+    color: #2B3A48 !important;
+    border: 2px solid #2B3A48 !important;
+    box-shadow: 0 1px #666 !important;
+    transform: translateY(4px);
+}
+
+.btn-qc-standard:hover {
+    background-color: #CC7306 !important;
+    color: #2B3A48 !important;
+    border: 2px solid #2B3A48 !important;
+    box-shadow: 0 7px #999 !important;
+    border-radius: 0.5rem !important;
+}
+
+.btn-qc-standard:focus {
+    background-color: #F8961E !important;
+    color: #2B3A48 !important;
+    border: 2px solid #2B3A48 !important;
+    box-shadow: 0 7px #999 !important;
+    border-radius: 0.5rem !important;
+} */
+
+
+
 .qc_questionBtn {
-    background-color: #577590 !important;
+    background-color: #F8961E !important;
     color: #ffffff !important;
     border: 2px solid #2B3A48 !important;
     box-shadow: 0 9px gray !important;
@@ -163,18 +189,15 @@ h3 {
 .qc_questionBtnCorrect {
     background-color: #43AA8B !important;
     color: #161D24 !important;
-    border: 2px solid #2B3A48 !important;
-    box-shadow: 0 9px gray !important;
-    border-radius: 1rem !important;
+    transition: all .2s ease-in-out;
+    transform: scale(1.05);
 }
 
 .qc_questionBtnIncorrect {
     background-color: #F94144 !important;
     color: #161D24 !important;
-    border: 2px solid #2B3A48 !important;
-    box-shadow: 0 9px gray !important;
-    border-radius: 1rem !important;
 }
+
 .qc_buttonDiv {
     padding: 10px;
 }
