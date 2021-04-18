@@ -213,7 +213,9 @@ h3 {
 
 
 /* Footer */
-
+#qc_footer {
+   background: #CEEBE2; 
+}
 
 /* Hover.css */
 
