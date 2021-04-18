@@ -176,24 +176,25 @@ h3 {
     border-radius: 0.5rem !important;
 } */
 
-
-
 .qc_questionBtn {
-    background-color: #F8961E !important;
-    color: #ffffff !important;
-    border: 2px solid #2B3A48 !important;
-    box-shadow: 0 9px gray !important;
-    border-radius: 1rem !important;
+    background-color: #FFFFFF !important;
 }
 
-.qc_questionBtnCorrect {
+.qc_questionBtn:hover {
+    background-color: #F9C74F !important;
+}
+
+.qc_questionBtnCorrect,
+.qc_questionBtnCorrect:hover {
     background-color: #43AA8B !important;
+    font-weight: 700;
     color: #161D24 !important;
     transition: all .2s ease-in-out;
     transform: scale(1.05);
 }
 
-.qc_questionBtnIncorrect {
+.qc_questionBtnIncorrect,
+.qc_questionBtnIncorrect:hover {
     background-color: #F94144 !important;
     color: #161D24 !important;
 }
