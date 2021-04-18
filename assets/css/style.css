@@ -87,37 +87,6 @@ h3 {
     align-items:    center;
 }
 
-/*  Nav button stylings */
-nav a {
-    color: #293132;
-}
-
-.bg-nav {
-    background-color: #4F5165;
-    width: 100%;
-}
-
-.navbar-toggler,
-.navbar-toggler:focus,
-.navbar-toggler:active {
-    outline: none;
-    box-shadow: none;
-    border: 0;
-}
-
-.qc-nav-link {
-    color: #ffffff !important; 
-    font-weight: 500;
-}
-
-.fa-bars {
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 2px #2B3A48;
-    color: #577590;
-}
-
-
-
 /*Credit to Alessandro Incarnati for idea of doing multicolored hr. https://stackoverflow.com/questions/29733780/how-to-style-hr-to-have-multiple-colors*/
 /*  Original Code: span { display:block; width:10%; float:left; height:5px;}  .line{width:100%;}  */
 .hr_span{
@@ -175,6 +144,14 @@ nav a {
 
 
 /* General Button Styling */
+.qc_headerBtn {
+    background-color: #43AA8B !important;    /* Color 6 - Sea Green*/
+    color: #ffffff !important;
+    border: 2px solid #2B3A48 !important;
+    box-shadow: 0 5px gray !important;
+    border-radius: 5px !important;
+}
+
 .qc_questionBtn {
     background-color: #577590 !important;
     color: #ffffff !important;
