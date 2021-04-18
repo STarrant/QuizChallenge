@@ -217,6 +217,21 @@ h3 {
    background: #CEEBE2; 
 }
 
+#footer-disclaimer p{
+    color: #577590;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.footer-anchor {
+    color: #2B3A48;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-anchor:hover {
+    color: #577590;
+}
 /* Hover.css */
 
 
