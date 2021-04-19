@@ -293,19 +293,19 @@ function highContrastMode() {
 function soundCorrect() {
     //let audio = new Audio('../audio/335908__littlerainyseasons__correct.mp3');
     //audio.play();
-    //let audio1 = new Audio('../assets/audio/335908__littlerainyseasons__correct.mp3');
-    //audio1.play();
-    let audio2 = new Audio('../QuizChallenge/assets/audio/335908__littlerainyseasons__correct.mp3');
-    audio2.play();
-    console.log("version 0.13");
+    let audio1 = new Audio('../assets/audio/335908__littlerainyseasons__correct.mp3');
+    audio1.play();
+    //let audio2 = new Audio('../QuizChallenge/assets/audio/335908__littlerainyseasons__correct.mp3');
+    //audio2.play();
+    console.log("version 0.14");
 }
 
 function soundIncorrect() {
     //let audio = new Audio('../audio/196106_aiwha_ding.mp3');
     //audio.play();
-    //let audio1 = new Audio('../assets/audio/196106_aiwha_ding.mp3');
-    //audio1.play();
-    let audio2 = new Audio('../QuizChallenge/assets/audio/196106_aiwha_ding.mp3');
-    audio2.play();
-    console.log("version 0.13");
+    let audio1 = new Audio('../assets/audio/196106_aiwha_ding.mp3');
+    audio1.play();
+    //let audio2 = new Audio('../QuizChallenge/assets/audio/196106_aiwha_ding.mp3');
+    //audio2.play();
+    console.log("version 0.14");
 }
