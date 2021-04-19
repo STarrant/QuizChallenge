@@ -1,6 +1,6 @@
 # Quiz Challenge : Trivia Game for all Ages
 
-* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz.
+* A fun and addictively simple quiz game website.
 
 ![Multi Device Mockup Image](assets/wireframes/quizchallenge_multidevicewebsitemockupgenerator_techsini.com.png)
 
@@ -49,6 +49,7 @@ external trivia database to maintain a user's interest by continually providing 
 * As a **user**, I want to be able to start my first game with a single click to see if I like this game.
 * As a **user**, I want to see my current score so I can keep track of how I'm doing.
 * As a **user**, I want to be challenged with different questions every time I play this game.
+* As a **user**, I want to be able to select different categories, quantities and difficulty levels of questions. 
 * As a **user**, I may want to see who developed this game to contact them with suggestions or business proposals.
 
 ### Site Owner Goals
@@ -61,28 +62,37 @@ external trivia database to maintain a user's interest by continually providing 
 
 #### Requirements
 
-* Simple single-page interface with navbar normally as a burger icon collapsed.
+* Simple single-page interface with header, game area and footer with about/contact/credits/disclaimer.
 * Fast loading times are imperative to avoid a user leaving the page due to lag.
 * Contact form for users to send requests, suggestions or trivia questions.
+* Bright and cheerful colors and styling.
+* Dropdowns to allow customisibility of the questions drawn.
 
 #### Expectations
 
-* Content is visually satisfying and exciting.
+* Content is visually satisfying and exciting to look at.
 * Game automatically cycles from start page, through questions to final score without glitching or issues.
-* 
+* The design is responsive and will work across a wide variety of screen sizes.
 
 ### Design Choices
 
 ---
 _________________________________________________
 
+For the design of this site, I took inspriation from books and cartoons that my children are most interested in. 
+The colors selected are bright pastels. Rainbow-colored hortizontal rules break between the header, game and footer areas.
+A subtle jungle pastel backdrop was used to create focus on the centre of the screen. The logo is a simple rendering using
+Microsoft Word's WordArt and Shapes to create a colorful text based logo. The green tick mark for Q's cross stroke is alluding
+to a correct mark of a quiz. Simple shadowing has been added to give an embossed effect and make the text stand out from the 
+background without resorting to deeper hued colors or outlines.
+
 #### Fonts
 
 * (Google Fonts)[https://fonts.google.com/] has been used to add typographic style to the site.
-With legibilty being a key focus, (Roboto)[https://fonts.google.com/specimen/Roboto] was chosen 
-as the main font with (RocknRoll One)[https://fonts.google.com/specimen/RocknRoll+One] being used 
-for some of the heading text for a more fun font. The main logo was design in Microsoft Word with 
-the Berlin Sans font.
+With legibilty and ease of eye strain being a key focus of a text-based game that involves a lot of reading,
+(Roboto)[https://fonts.google.com/specimen/Roboto] was chosen as the main font with 
+(RocknRoll One)[https://fonts.google.com/specimen/RocknRoll+One] being used for some of the heading text for a more fun font.
+The main logo was designed in Microsoft Word with the Berlin Sans font.
 
 #### Icons
 
@@ -92,10 +102,25 @@ the Berlin Sans font.
 
 The website colors were chosen using [coolors.co](https://coolors.co/).
 
+![Quiz Challenge Coolors Color Selection](/assets/wireframes/qc_coolors.png)
+
 ## Wireframing
 
-Wireframing was done using Balsamiq under full-functional trial provided by Code Institute.
-Wireframes were developed for a ___________________________________________
+<details>
+  <summary>Wireframing was done using Balsamiq under full-functional trial provided by Code Institute.
+Wireframes were developed for a start screen, question screen and score screen. The main elements of
+these wireframes were relatively faithfully produced. Other aspects of the design developed more organically.</summary>
+
+#### Project Wireframes
+
+* Start Screen Wireframe
+* ![Start Screen Wireframe](/assets/wireframes/qc_wf_01_startscreen.png)
+* Question Screen
+* ![Question Screen Wireframe](/assets/wireframes/qc_wf_02_questionscreen.png)
+* Score Screen
+* ![Score Screen Wireframe](/assets/wireframes/qc_wf_03_scorescreen.png)
+
+</details>
 
 ---
 
