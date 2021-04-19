@@ -120,25 +120,15 @@ h3 {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 400px;
-    transition: all 7s ease-in-out;
-    -moz-transition: all 7s ease-in-out;
-    -webkit-transition: all 7s ease-in-out;
 }
 
 #qc_startScreen,
 #qc_questionScreen,
 #qc_scoreScreen {
     background-color: hsla(43, 91%, 91%, 60%);
-    height: 50vh;
-    width: 100vw;
-    padding: 20px;
-    
-    /*display: flex;                  BUG - CAUSES AN ERROR HIDING PAGE SECTIONS!!! */
     justify-content: center;
     align-items: center;
-    max-width: 1000px;
     margin: auto;
-
     border: 3px solid #43AA8B;
     border-radius: 15px;
 }
@@ -240,18 +230,15 @@ h3 {
 
 /* Media Query */
 
-@media only screen and (min-width: 575.98px) {
+@media only screen and (max-width: 575.98px) {
 
-    
 }
 
-@media only screen and (min-width: 767.98px) {
+@media only screen and (max-width: 767.98px) {
 
-    
 }
 
-@media only screen and (min-width: 991.98px) {
-   
-   
+@media only screen and (max-width: 991.98px) {
+ 
 }
 

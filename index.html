@@ -28,9 +28,8 @@
             <div id="qc_menu" class="qc_menuColor col-2">
                 <button id="btn-mute" class="btn btn-qc-standard"><i class="fas fa-volume-mute"></i></button>
                 <button id="btn-sound" class="btn btn-qc-standard qc_hide"><i class="fas fa-volume-up"></i></button>
-                <button id="btn-highContrast" class="btn btn-qc-standard"><i class="fas fa-adjust"></i></button>
-                <button id="btn-color" class="btn btn-qc-standard qc_hide"><i class="fas fa-palette"></i></button>
-                
+                <button id="btn-highContrast" class="btn btn-qc-standard mt-1"><i class="fas fa-adjust"></i></button>
+                <button id="btn-color" class="btn btn-qc-standard mt-1 qc_hide"><i class="fas fa-palette"></i></button>               
             </div>
             <div class="col-12 hr_div">
                 <span class="hr_span bg_color1"></span>
@@ -44,28 +43,22 @@
         </div>
     </header>
     <section id="qc_main-section" class="jungle-background">
-
-
-
         <!-- Start Screen -->
-        <div id="qc_startScreen" class="container">
+        <div id="qc_startScreen" class="container p-sm-1 p-md-2 px-lg-5 py-lg-2">
             <div class="row">
-
                 <div class="col-12">
                     <h3>Start a New Game?</h3>
                 </div>
-
                 <div class="col-12">
                     <label for="qc_numQuestions">Number of questions:</label>
                     <select name="qc_numQuestions" id="qc_numQuestions" class="form-select" aria-label="Select the number of questions per round">
                         <option selected value="3">3</option>
                         <option value="5">5</option>
-                        <option value="7">7</option>
+                        <option value="7">7</option>s
                         <option value="10">10</option>
                         <option value="15">15</option>
                     </select>
-                </div>
-                
+                </div>                
                 <div class="col-12">
                     <!-- Category Selection Dropdown -->
                     <!-- Categories are loaded at startup from script.js -->
@@ -74,7 +67,6 @@
                         <option value="Err" selected>Error - Categories Not Loaded</option>
                     </select>
                 </div>
-
                 <div class="col-12">
                     <label for="qc_difficulty">Difficulty level:</label>
                     <select name="qc_difficulty" id="qc_difficulty" class="form-select" aria-label="Choose the question difficulty level">
@@ -90,11 +82,8 @@
                 </div>
             </div>
         </div>
-
-
-
         <!-- Question Screen -->
-        <div id="qc_questionScreen" class="container-fluid">
+        <div id="qc_questionScreen" class="container p-sm-1 p-md-2 px-lg-5 py-lg-2">
             <div class="row">
                 <div class="col-6">
                     <h5 id="qc_questionNum"></h5>
@@ -116,11 +105,10 @@
                 </div>
                 <div class="d-grid gap-4 col-sm-12 col-md-6 qc_buttonDiv">
                     <button type="button" id="qc_btnD" class="btn-lg qc_questionBtn"><span id="qc_txtAnswerD"></span></button>
-                </div>
-                                
+                </div>                                
             </div>
         </div>
-        <div id="qc_scoreScreen" class="container-fluid">
+        <div id="qc_scoreScreen" class="container p-sm-1 p-md-2 px-lg-5 py-lg-2">
             <div class="row">
                 <div class="col-12 p-5 d-flex justify-content-center">
                     <h1>GAME OVER</h1>
@@ -136,14 +124,6 @@
                 </div>
             </div>
         </div>
-        <!--
-        <div>
-        <button id="scriptTestBtnA">Start Screen</button>
-        <button id="scriptTestBtnB">Question Screen</button>
-        <button id="scriptTestBtnC">Score Screen</button>
-        <button id="scriptTestColor">Color</button>
-        <button id="scriptTestHC">High Contrast</button>
-        </div>-->
     </section>
     <footer id="qc_footer" class="container-fluid">
         <div class="row hr-div">
