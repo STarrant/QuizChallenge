@@ -297,6 +297,7 @@ function soundCorrect() {
     //audio1.play();
     let audio2 = new Audio('../QuizChallenge/assets/audio/335908__littlerainyseasons__correct.mp3');
     audio2.play();
+    console.log("version 0.13");
 }
 
 function soundIncorrect() {
@@ -306,4 +307,5 @@ function soundIncorrect() {
     //audio1.play();
     let audio2 = new Audio('../QuizChallenge/assets/audio/196106_aiwha_ding.mp3');
     audio2.play();
+    console.log("version 0.13");
 }
