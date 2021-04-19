@@ -291,11 +291,11 @@ function highContrastMode() {
 // Credit:  Code here modified from answer by Uri (https://stackoverflow.com/users/378594/uri) in question 9419263 (https://stackoverflow.com/questions/9419263/how-to-play-audio)
 
 function soundCorrect() {
-    let audio2 = new Audio('../QuizChallenge/assets/audio/335908__littlerainyseasons__correct.mp3');
+    let audio2 = new Audio('../quiz_challenge/assets/audio/335908__littlerainyseasons__correct.mp3');
     audio2.play();
 }
 
 function soundIncorrect() {
-    let audio2 = new Audio('../QuizChallenge/assets/audio/196106_aiwha_ding.mp3');
+    let audio2 = new Audio('../quiz_challenge/assets/audio/196106_aiwha_ding.mp3');
     audio2.play();
 }
