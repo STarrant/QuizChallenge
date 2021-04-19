@@ -2,7 +2,7 @@
 
 * zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz.
 
-* Website mockup image to be added testhigh
+![Multi Device Mockup Image](assets/wireframes/quizchallenge_multidevicewebsitemockupgenerator_techsini.com.png)
 
 ## Contents
 
