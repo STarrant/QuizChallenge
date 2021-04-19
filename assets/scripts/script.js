@@ -5,25 +5,22 @@ const buttons = ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD'];    //IDs of the an
 let currentCategory;                //Quiz category selection number - corresponds to opentdb.com php call.
 let currentDifficulty;              //Quiz difficulty selector - easy, medium, hard or all levels.
 let MAX_QUESTION;                   //How many questions per round.
-
 let questionSet = [];               //Array of objects that holds the converted JSON question set from opentdb.com.
-
 let currentQuestionNumber;          //Pointer for which question the player is on, from 1 to MAX_QUESTION inclusive.
 let currentQuestion = "";           //String for current question to be displayed.
 let currentCorrectAnswer = "";      //String for current correct answer.
 let currentAnswerArray = [];        //Array of four randomized strings for possible answers.
-
 let currentScore;                   //Current game score (number)
-
 let gameReady = false;              //Boolean to prevent an answer button being overclicked.
-
-
 
 // --- FUNCTIONS TO RUN ON LOADING THE PAGE ---
 
 window.onload = function() {
-    getCategories();              // Function call to pull quiz categories from OpenTDB.com
-    startScreen();                // Function call to hide show the start screen.
+    // Function call to pull quiz categories from OpenTDB.com
+    getCategories();
+    
+    // Function call to hide show the start screen.
+    startScreen();                
 
     // --- EVENT LISTENER FOR START BUTTON ---
     document.getElementById('startGame').addEventListener('click', function(){
@@ -31,7 +28,8 @@ window.onload = function() {
     });
 
     // --- EVENT LISTENER FOR ANSWER BUTTONS ---
-    buttons.forEach(button => document      // buttons is array of IDs of HTML answer button elements, ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD']
+    // buttons is array of IDs of HTML answer button elements, ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD']
+    buttons.forEach(button => document      
         .getElementById(button)
         .addEventListener('click', () => whichButton(button))
     );
@@ -44,15 +42,20 @@ window.onload = function() {
 };
 
 // --- FETCH CATEGORIES AND PUT IN HTML OPTIONS DROPDOWN ---
-
-function getCategories(){fetch('https://opentdb.com/api_category.php')  //Fetch the available categories from OpenTDB.com.
-    .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
-    .then(data => categoryJSONToHTMLOptions(data));                          //Promise: call the categoryJSONtoHTMLOptions function.
+//Fetch the available categories from OpenTDB.com.
+function getCategories(){fetch('https://opentdb.com/api_category.php')  
+    //Promise: Isolate JSON data from the response.
+    .then(result => result.json())                                      
+    //Promise: call the categoryJSONtoHTMLOptions function.
+    .then(data => categoryJSONToHTMLOptions(data));                     
 }
 
-function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
-    let opentdbCategoriesArray = opentdbCategoriesObject.trivia_categories;   //New array opentdbCategoriesArray is assigned to the trivia_categories array value.
-    var categoryArray = opentdbCategoriesArray.map( function(category) {   //Another new array categoryArray is mapped to the values of the opentdbCategories array.
+// Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
+function categoryJSONToHTMLOptions(opentdbCategoriesObject) {
+    //New array opentdbCategoriesArray is assigned to the trivia_categories array value.
+    let opentdbCategoriesArray = opentdbCategoriesObject.trivia_categories;
+    //Another new array categoryArray is mapped to the values of the opentdbCategories array.
+    var categoryArray = opentdbCategoriesArray.map( function(category) {   
         var item = {
             "id": category.id,
             "name": category.name
@@ -60,11 +63,14 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {           // Funct
         return item;
     });
 
-    var htmlCategoryList = categoryArray.map(function (item) {              //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
+    //New string htmlCategoryList is created by mapping data from the categoryArray by looping through each element while adding the HTML tags.
+    var htmlCategoryList = categoryArray.map(function (item) {              
         return '<option value="' + item.id + '"> ' + item.name + '</option>';  
     }).join('');
-    htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;  //An all categories option is prepended and set to selected to the string.
-    document.getElementById('qc_category').innerHTML = htmlCategoryList;   //This string is inserted to the HTML categories list in index.html.
+    //An all categories option is prepended and set to selected to the string.
+    htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;
+    //This string is inserted to the HTML categories list in index.html.
+    document.getElementById('qc_category').innerHTML = htmlCategoryList;   
 }
 
 // --- START GAME FUNCTION ---
@@ -108,14 +114,20 @@ function startGame() {
 
 
 // --- FETCH QUESTIONS AND PUT IN AN ARRAY ---
-function getQuestions(numQuestionsString, categoryString, difficultyString){fetch(`https://opentdb.com/api.php?`+ numQuestionsString + categoryString + difficultyString +`&type=multiple`)  //Fetch XXXXXX questions from OpenTDB.com.
-    .then(result => result.json())                                      //Promise: Isolate JSON data from the response.
-    .then(data => questionJSONtoArray(data));                          //Promise: call the categoryJSONtoHTMLOptions function.
+// Function to format a template literal from the user selection on the start screen and fetch the relevant JSON from opentdb.com.
+function getQuestions(numQuestionsString, categoryString, difficultyString){fetch(`https://opentdb.com/api.php?`+ numQuestionsString + categoryString + difficultyString +`&type=multiple`)  
+    //Promise: Isolate JSON data from the response.
+    .then(result => result.json())                                      
+    //Promise: call the categoryJSONtoHTMLOptions function.
+    .then(data => questionJSONtoArray(data));                          
 }
 
-function questionJSONtoArray(opentdbQuestionObject) {           // Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
-    let opentdbQuestionArray = opentdbQuestionObject.results;   //New array opentdbCategoriesArray is assigned to the trivia_categories array value.
-    var questionArray = opentdbQuestionArray.map( function(questions) {   //Another new array categoryArray is mapped to the values of the opentdbCategories array.
+// Function to convert the returned JSON object to a HTML option list. Argument of the JSON category object taken.
+function questionJSONtoArray(opentdbQuestionObject) {
+    //New array opentdbCategoriesArray is assigned to the trivia_categories array value.
+    let opentdbQuestionArray = opentdbQuestionObject.results;   
+    //Another new array categoryArray is mapped to the values of the opentdbCategories array.
+    var questionArray = opentdbQuestionArray.map( function(questions) {   
         var item = {
             "q": questions.question,
             "a_correct": questions.correct_answer,
@@ -123,7 +135,8 @@ function questionJSONtoArray(opentdbQuestionObject) {           // Function to c
             };
         return item;
     });
-    questionSet = questionArray;   // questionSet is an array of objects question/answer objects used by the quiz game.
+    // questionSet is an array of objects question/answer objects used by the quiz game.
+    questionSet = questionArray;   
     updateScore();
     updateQuestionNumber();
     nextQuestion();
@@ -148,18 +161,14 @@ function nextQuestion(){
     }
 }
 
-// -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
+// --- CAPTURE WHICH ANSWER BUTTON IS CLICKED ---
 // --- courtesy of timmy_i_chen   https://replit.com/@timmy_i_chen/EnchantingSilverTerabyte
 function whichButton(button) {
-    console.log("Button " + button + " was clicked.");
     let selectedAnswer = document.getElementById(button).innerText;
-    console.log(selectedAnswer);
     if (gameReady) {
         if (selectedAnswer === currentCorrectAnswer) {
-            console.log("You're right!");
             document.getElementById(button).classList.add("qc_questionBtnCorrect");
             currentScore++;
-            console.log(currentScore);
             gameReady = false;
             soundCorrect();
             updateScore();
@@ -167,8 +176,6 @@ function whichButton(button) {
         } else {
             document.getElementById(button).classList.add("qc_questionBtnIncorrect");
             gameReady = false;
-            console.log("Nice try...");
-            console.log(currentScore);
             soundIncorrect();
             updateScore();
             setTimeout(() => { findCorrectAnswer(); }, 1000);
@@ -178,8 +185,6 @@ function whichButton(button) {
         return;
     }
 }
-
-
 
 // --- FUNCTION TO FIND THE CORRECT ANSWER BUTTON AND ADD 'CORRECT' STYLE CLASS
 function findCorrectAnswer() {
@@ -205,7 +210,6 @@ function updateQuestionNumber() {
     questionNumberText.innerHTML = "Question: " + currentQuestionNumber + " / " + MAX_QUESTION;
 }
 
-
 // --- PRINT A QUESTION AND ANSWERS TO THE GAME SCREEN
 // --- BUGFIX - Text strings are written to .innerHTML rather than textContent due to HTML special character codes being displayed.
 function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
@@ -221,7 +225,6 @@ function printQuestion(questionText, answerAText, answerBText, answerCText, answ
     answerD.innerHTML = answerDText;
 }
 
-
 // --- FIND ANY BUTTONS STYLED AS CORRECT OR INCORRECT AND REMOVE THE STYLE CLASSES ---
 function resetButtonColors() {
     let correctButtons = document.getElementsByClassName('qc_questionBtnCorrect');
@@ -235,7 +238,6 @@ function resetButtonColors() {
 }
 
 // --- FINAL SCORE FUNCTION ---
-
 function finalScore() {
     let finalScoreText = "Your final score is " + currentScore + " / " + MAX_QUESTION + " questions correct.";
     let scorePercentage = (currentScore/MAX_QUESTION) * 100;
@@ -246,10 +248,7 @@ function finalScore() {
     scoreScreen();
 }
 
-
-
 // --- FUNCTIONS TO HIDE SCREEN ELEMENTS ---
-
 function startScreen() {
     document.getElementById('qc_startScreen').classList.remove('qc_hide');
     document.getElementById('qc_questionScreen').classList.add('qc_hide');
@@ -289,185 +288,14 @@ function highContrastMode() {
 // --- AUDIO EFFECTS ---
 //-----------------------------------------------------------------------------------------------------------------------------------
 
-// Credit:  Code here taken from answer by Uri (https://stackoverflow.com/users/378594/uri) in question 9419263 (https://stackoverflow.com/questions/9419263/how-to-play-audio)
+// Credit:  Code here modified from answer by Uri (https://stackoverflow.com/users/378594/uri) in question 9419263 (https://stackoverflow.com/questions/9419263/how-to-play-audio)
 
 function soundCorrect() {
-    let audio = new Audio('/assets/audio/335908__littlerainyseasons__correct.mp3');
+    let audio = new Audio('../assets/audio/335908__littlerainyseasons__correct.mp3');
     audio.play();
 }
 
 function soundIncorrect() {
-    let audio = new Audio('/assets/audio/196106_aiwha_ding.mp3');
+    let audio = new Audio('../assets/audio/196106_aiwha_ding.mp3');
     audio.play();
 }
-
-// ----------------------------------------------------------------------------------------------------------------------------------
-//                                         TEST CODE SECTION - ALL TO BE DELETED
-// ----------------------------------------------------------------------------------------------------------------------------------
-
-//  Test script for find correct button. TO BE DELETED
-/*
-document.getElementById('scriptTestBtn2').addEventListener('click', function(){
-    finalScore();
-});
-
-document.getElementById('scriptTestBtnA').addEventListener('click', function(){
-    startScreen();
-});
-
-document.getElementById('scriptTestBtnB').addEventListener('click', function(){
-    questionScreen();
-});
-
-document.getElementById('scriptTestBtnC').addEventListener('click', function(){
-    scoreScreen();
-});
-
-document.getElementById('scriptTestColor').addEventListener('click', function(){
-    colorMode();
-});
-
-document.getElementById('scriptTestHC').addEventListener('click', function(){
-    highContrastMode();
-});
-*/
-
-//   --------------------------------- Tested Code for Category Mapping to an Option List --------------------------------
-
-// Categories list from https://opentdb.com/api_category.php
-/*
-let opentdbCategoriesObject = {
-    "trivia_categories":[
-        {"id":9,"name":"General Knowledge"},
-        {"id":10,"name":"Entertainment: Books"},
-        {"id":11,"name":"Entertainment: Film"},
-        {"id":12,"name":"Entertainment: Music"},
-        {"id":13,"name":"Entertainment: Musicals & Theatres"},
-        {"id":14,"name":"Entertainment: Television"},
-        {"id":15,"name":"Entertainment: Video Games"},
-        {"id":16,"name":"Entertainment: Board Games"},
-        {"id":17,"name":"Science & Nature"},
-        {"id":18,"name":"Science: Computers"},
-        {"id":19,"name":"Science: Mathematics"},
-        {"id":20,"name":"Mythology"},
-        {"id":21,"name":"Sports"},
-        {"id":22,"name":"Geography"},
-        {"id":23,"name":"History"},
-        {"id":24,"name":"Politics"},
-        {"id":25,"name":"Art"},
-        {"id":26,"name":"Celebrities"},
-        {"id":27,"name":"Animals"},
-        {"id":28,"name":"Vehicles"},
-        {"id":29,"name":"Entertainment: Comics"},
-        {"id":30,"name":"Science: Gadgets"},
-        {"id":31,"name":"Entertainment: Japanese Anime & Manga"},
-        {"id":32,"name":"Entertainment: Cartoon & Animations"}]
-    };
-let opentdbCategoriesArray = opentdbCategoriesObject.trivia_categories;
-
-var categoryArray = opentdbCategoriesArray.map( function(category) {
-    var item = {
-        "id": category.id,
-        "name": category.name
-        }
-    return item;
-});
-
-var htmlCategoryList = categoryArray.map(function (item) {
-  return '<option value="' + item.id + '"> ' +
-    item.name + '</option>';  
-}).join('');
-htmlCategoryList = '<option value="All" selected>All Categories</option>' + htmlCategoryList;
-document.getElementById('qc_category').innerHTML = htmlCategoryList;
-*/
-//   --------------------------------- End of Tested Code for Category Mapping to an Option List --------------------------------
-
-/*
-
-
-
-function getData(amount, category){fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category}`)
-.then(res => res.json())
-.then(data => whatever(data.results))
-          }
-function whatever(data) {
-  const test = data.map(item => {
-    return {
-      question: item.question,
-      correct_answer: item.correct_answer,
-      answers: [...item.incorrect_answers, item.correct_answer]
-    }
-  })
-  console.log(test)
-}
-
-getData(10, 10);
-
-// Function to write new question and four answers to the HTML.
-// Function contains five arguments for the text values of the question and four possible answers.
-function printQuestion(questionText, answerAText, answerBText, answerCText, answerDText) {
-    console.log('Start printAnswers()'); //To_be_deleted.
-    question = document.getElementById('qc_txtQuestion');
-    question.textContent = questionText;
-    answerA = document.getElementById('qc_txtAnswerA');
-    answerA.textContent = answerAText;
-    answerB = document.getElementById('qc_txtAnswerB');
-    answerB.textContent = answerBText;
-    answerC = document.getElementById('qc_txtAnswerC');
-    answerC.textContent = answerCText;
-    answerD = document.getElementById('qc_txtAnswerD');
-    answerD.textContent = answerDText;
-}
-//  Test script for printQuestion.
-//document.getElementById('qc_btnAnswerA').addEventListener('click', function(){
-//    printQuestion('test text for question', 'Hello answer a', 'Hello answer b', 'Hello answer c', 'Hello answer d');
-//});
-
-function nextQuestion(){
-    if(currentQuestionNumber <= MAX_QUESTION){
-        //let currentQuestionObject = questionSet[currentQuestionNumber-1];
-        //console.log("questionSet is:");
-        //console.log(questionSet);
-        //console.log("currentQuestionObject is:");
-        //console.log(currentQuestionObject);
-        //console.log("questionSet.shift() is:");
-        //console.log(questionSet);
-        //let answerArray = [...currentQuestionObject.a_incorrect, currentQuestionObject.a_correct];
-        //console.log(answerArray);
-        //answerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
-        //console.log(answerArray);
-
-        //printQuestion(questionSet[currentQuestionNumber].q, questionSet[currentQuestionNumber].a_correct, questionSet[currentQuestionNumber].a_incorrect[0], questionSet[currentQuestionNumber].a_incorrect[1], questionSet[currentQuestionNumber].a_incorrect[2]);
-        //currentQuestionNumber++;
-
-        currentQuestion = questionSet[currentQuestionNumber-1].q;
-        currentAnswerArray = [...questionSet[currentQuestionNumber-1].a_incorrect, questionSet[currentQuestionNumber-1].a_correct];
-        currentAnswerArray.sort(() => Math.random() - 0.5);    //courtesy of Eddie Kumar (https://stackoverflow.com/questions/53591691/sorting-an-array-in-random-order)
-        currentCorrectAnswer = questionSet[currentQuestionNumber-1].a_correct;
-        printQuestion(currentQuestion, currentAnswerArray[0], currentAnswerArray[1], currentAnswerArray[2], currentAnswerArray[3]);
-        currentQuestionNumber++;
-    } else {
-        console.log("No more questions");
-    }
-}
-
-// -------------  LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
-// --- courtesy of timmy_i_chen   https://replit.com/@timmy_i_chen/EnchantingSilverTerabyte
-function whichButton(button) {
-  console.log("Button " + button + " was clicked.");
-}
-
-const buttons = ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD'];
-
-buttons.forEach(button => document
-  .getElementById(button)
-  .addEventListener('click', () => whichButton(button))
-);
-
-
-// -------------  END OF LET'S TRY AND CAPTURE WHICH BUTTON IS CLICKED ---------------------------
-// -----------------------------------------------------------------------------------------------
-
-
-*/
-console.log('Script Ended'); //To_be_deleted.
