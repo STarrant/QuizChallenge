@@ -253,19 +253,24 @@ Many bugs were encountered during the development of the project - all admittedl
 ### Development Bugs
 
 * The opentdb api was very, very difficult to get working as a JavaScript learner. I had serious difficulty 
-fetching the JSON and storing this question data in an array of objects to be used in the quiz loop.
+fetching the JSON and storing this question data in an array of objects to be used in the quiz loop. Eventually,
+after a week of trying different techniques I managed to get it to store outside the function call.
 * Special HTML character codes were being displayed in the question and answer fields. E.g. &quot;, &#039;. 
 Code was initially written in to use array.replace() to find and replace them out. The actual solution was 
 to write the text strings from JS to HTML targetting the .innerHTML rather than .textContent. This avoided 
 the information being passed to the browser inside quotes as a string and thus was interpreted as a special 
 character code rather than a string.
-* Deploying to GitHub Pages caused soSme difficulty where JS files were not being loaded. The was corrected by
+* Deploying to GitHub Pages caused some difficulty where JS files were not being loaded. The was corrected by
  removing a preceding '/' from the source link.
 * A number of minor warnings were picked up by [JSHint.com](https://jshint.com/) such as missing semicolons and
 undeclared variables. These were amended as found and documented with 'Fix' commits.
 * On GitHub pages, the eventlisteners for buttons threw up a 'cannot read property of null' issue during testing.
 A solution was found on [StackOverflow](https://stackoverflow.com/questions/26107125/cannot-read-property-addeventlistener-of-null).
 By moving event listeners into the window.onload function, the event listeners would not be called before the page had loaded.
+* There was a favicon.ico error in the console during testing. An icon was generated for the site and added to the root.
+* Numerous errors were encountered with the site on Github pages and links to external resources, mainly the audio files.
+I have no adequate explanation of how or why this was happening as it was not an issue on previous projects hosted on github pages.
+A base tag was added to the head section index.html but a longer file path of ...QuizChallenge was added to the link path.
 
 
 ### Testing Bugs
