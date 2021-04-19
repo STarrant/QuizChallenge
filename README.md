@@ -129,11 +129,18 @@ these wireframes were relatively faithfully produced. Other aspects of the desig
 ---
 **Features** that have been **implemented:**
 
-* _____________________________________________________
+* Responsive design using Bootstrap.
+* Fetch quiz categories from opentdb.com for the quiz and provide in a HTML dropdown to the user.
+* Fetch quiz questions as per user selection and store in an array of objects for the quiz game.
+* Simple, single player mode game that cycles through game questions.
+* Aubible and visual indication of correct/incorrect answers.
+* Final score screen with number and percentage of correct answers displayed.
 
 **Features** that will be **implemented** in the **future:**
 
-* _________________________________________________
+* Two player mode. (This is my single biggest disappointment that I did not have time to get this implemented before project submission.)
+* Google text-to-speech api to read questions and answer choices.
+* Change the picture backgrounds to suit the quiz category. The work involved here made this prohibitive in the project timeline and it may have been difficult to match in with the style of the project.
 
 ## Technologies Used
 
@@ -161,7 +168,7 @@ these wireframes were relatively faithfully produced. Other aspects of the desig
 
 ### HTML Test
 
-HTML code has been tested using the [HTML Validator](https://validator.w3.org/) and gave the following errors:
+HTML code has been tested using the [HTML Validator](https://validator.w3.org/) and gave the following error:
 
 #### HTML Test Errors
 
