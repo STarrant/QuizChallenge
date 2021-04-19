@@ -4,8 +4,7 @@
 /* font-family: 'Roboto', sans-serif; */
 /* font-family: 'RocknRoll One', sans-serif; */
 
-/* Color Palette */
-
+/* Color Palette - Unused class were all project colors are kept.*/
 .qc_color-palette {   /* Unused Class */
  color: #F94144;    /* Color 1 - Red */
  color: #F3722C;    /* Color 2 - Orange*/
@@ -20,18 +19,19 @@
  color: #161D24;    /* Color 7 -75%*/
  color: #FDF1D3;    /* Color 4 +75%  Off-yellow for title background*/
  color: hsla(43, 91%, 91%, 60%)    /* Color 4 +75% with 60% alpha */
-
 }
 
-/* Special Paddings Margins Text Rules */
-
-
-
 /* General */
+
+/* Override Bootstrap Fonts */
+* {
+    color: #161D24;
+    font-family: 'Roboto', sans-serif;
+}
+
 .qc_hide{
     display: none;
 }
-
 
 html,
 body {
@@ -48,14 +48,10 @@ body {
     width: 100vw;
 }
 
-* {
-    color: #161D24;
-    font-family: 'Roboto', sans-serif;
-}
-
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: 'RocknRoll One', sans-serif;
 }
 
@@ -89,7 +85,7 @@ h3 {
 }
 
 /*Credit to Alessandro Incarnati for idea of doing multicolored hr. https://stackoverflow.com/questions/29733780/how-to-style-hr-to-have-multiple-colors*/
-/*  Original Code: span { display:block; width:10%; float:left; height:5px;}  .line{width:100%;}  */
+/*  Copied Code: span { display:block; width:10%; float:left; height:5px;}  .line{width:100%;}  */
 .hr_span{
     display:    block;
     width:      14.28%; /* 14.28% = 100% width / 7 colors. */
@@ -111,7 +107,7 @@ h3 {
 .bg_color6 {background-color:    #43AA8B;}    /* Color 6 - Sea Green*/
 .bg_color7 {background-color:    #577590;}    /* Color 7 - Slate Blue*/
 
-
+/* Main Area Background */
 .jungle-background {
     padding-top: 5%;
     padding-bottom: 5%;
@@ -122,6 +118,7 @@ h3 {
     min-height: 400px;
 }
 
+/* Styling for Game Screen Divs */
 #qc_startScreen,
 #qc_questionScreen,
 #qc_scoreScreen {
@@ -193,15 +190,6 @@ h3 {
     padding: 10px;
 }
 
-/* Heading */
-
-
-
-
-/*  Images and image titles */
-
-
-
 /* Footer */
 #qc_footer {
    background: #CEEBE2; 
@@ -222,23 +210,3 @@ h3 {
 .footer-anchor:hover {
     color: #577590;
 }
-/* Hover.css */
-
-
-
-
-
-/* Media Query */
-
-@media only screen and (max-width: 575.98px) {
-
-}
-
-@media only screen and (max-width: 767.98px) {
-
-}
-
-@media only screen and (max-width: 991.98px) {
- 
-}
-
