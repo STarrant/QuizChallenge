@@ -2,7 +2,7 @@
 
 * A fun and addictively simple quiz game website.
 
-![Multi Device Mockup Image](assets/wireframes/quizchallenge_multidevicewebsitemockupgenerator_techsini.com.png)
+![Multi Device Mockup Image](/wireframes/quizchallenge_multidevicewebsitemockupgenerator_techsini.com.png)
 
 ## Contents
 
@@ -101,7 +101,7 @@ The main logo was designed in Microsoft Word with the Berlin Sans font.
 
 The website colors were chosen using [coolors.co](https://coolors.co/).
 
-![Quiz Challenge Coolors Color Selection](/assets/wireframes/qc_coolors.png)
+![Quiz Challenge Coolors Color Selection](/wireframes/qc_coolors.png)
 
 ## Wireframing
 
@@ -113,11 +113,11 @@ these wireframes were relatively faithfully produced. Other aspects of the desig
 ### Project Wireframes
 
 * Start Screen Wireframe
-* ![Start Screen Wireframe](/assets/wireframes/qc_wf_01_startscreen.png)
+* ![Start Screen Wireframe](/wireframes/qc_wf_01_startscreen.png)
 * Question Screen
-* ![Question Screen Wireframe](/assets/wireframes/qc_wf_02_questionscreen.png)
+* ![Question Screen Wireframe](/wireframes/qc_wf_02_questionscreen.png)
 * Score Screen
-* ![Score Screen Wireframe](/assets/wireframes/qc_wf_03_scorescreen.png)
+* ![Score Screen Wireframe](/wireframes/qc_wf_03_scorescreen.png)
 
 </details>
 
@@ -222,24 +222,22 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 ### User Stories
 
 <details>
-  <summary>User stories were tested using Google Chrome and developer tools. The only item of note which could be described as noteable sub-par would be the loading speed which needs improvement. Click dropdown to see individual tests.</summary>
+  <summary>User stories were tested using Google Chrome and developer tools. Click dropdown to see individual tests.</summary>
   
 #### Summary of user tests
 
-* Test: As a **user**, I want to see all the main services this company can offer at a glance so that in a single scroll of the homepage, I know exactly what this company has to offer.
-  * Result: ![User test image 1](wireframes/ace-user-story-1.jpg)
-  * Test: As a **user**, I want **fast loading-times** for pages.
-  * Result: ![User test image 2](wireframes/ace-user-story-2.jpg)
-  * Test: As a **user**, I want a **simple and well laid-out** website that gives the impression of these complex topics being made simple.
-  * Result: ![User test image 3](wireframes/ace-user-story-3.jpg)
-  * Test: As a **user**, I want to see **modern design** to show that the site owner is au fait with the latest developments in technology.
-  * Result: ![User test image 4](wireframes/ace-user-story-4.jpg)
-  * Test: As a **user**, I want to see some **examples of previous projects** done by this company.
-  * Result: ![User test image 5](wireframes/ace-user-story-5.jpg)
-  * Test: As a **user**, I want to see references to **industry standards** to be sure the deliverables will meet my company's specifications.
-  * Result: ![User test image 6](wireframes/ace-user-story-6.jpg)
-  * Test: As a **user**, I want to be able to **contact** the site owner and give a simple description of a potential project.
-  * Result: ![User test image 7](wireframes/ace-user-story-7.jpg)
+* Test: As a **user**, I want to see a simple, fun and intuitive layout.
+* Result: ![User test image 1](wireframes/qc-user-story-1.jpg)
+* Test: As a **user**, I want to be able to **start** my first game **with a single click** to see if I like this game.
+* Result: ![User test image 2](wireframes/qc-user-story-2.jpg)
+* Test: As a **user**, I want to see my **current score** so I can keep track of how I'm doing.
+* Result: ![User test image 3](wireframes/qc-user-story-3.jpg)
+* Test: As a **user**, I want to be challenged with **different questions every time** I play this game.
+* Result: ![User test image 4](wireframes/qc-user-story-4.jpg)
+* Test: As a **user**, I want to be able to **select** different categories, quantities and difficulty levels of questions.
+* Result: ![User test image 5](wireframes/qc-user-story-5.jpg)
+* Test: As a **user**, I may want to see who developed this game to **contact** them with suggestions or business proposals.
+* Result: ![User test image 6](wireframes/qc-user-story-6.jpg)
 
 </details>
 
