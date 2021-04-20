@@ -206,10 +206,19 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 #### JavaScript Test Errors
 
+* Many errors were encounter with JavaScript during the build process as this was a first outing in the language and it had to be learned during the project.
+* Most errors encountered were too minor to fully catelogue in a README.
+* The most difficulties were caused by bugs rather than syntax errors. Please see bugs section below.
+* The commit messages for all JS edits contain a full list of all issues and fixes.
+* The design process used the console log method almost constantly throughout the project so each code module was developed independently and new features were added piecemeal.
+
 #### JavaScript Test Warnings
+
+* From JSHint, one missing semicolon was indicated on line 62.
 
 #### JavaScript Test Fixes
 
+* Please see the test errors above and commit messages for a full list of JS test fixes.
 
 ### Responsiveness
 
@@ -221,7 +230,7 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 * Full Screen 24” Browser Window – Google Chrome – No Issues - **PASS**
 * Result: ![Responsive test Fullscreen](wireframes/qc-responsive-fullscreen.jpg)
 * iPhone 6/7/8 – No Issues - **PASS**
-* Result: ![Responsive test iPhone 6/7/8](wireframes/qc-responsive-iphone678.jpg) 
+* Result: ![Responsive test iPhone 6/7/8](wireframes/qc-responsive-iphone678.jpg)
 * iPhone 6/7/8 Plus – No issues - **PASS**
 * Result: ![Responsive test iPhone 6/7/8 Plus](wireframes/qc-responsive-iphone678plus.jpg)
 * iPhone X – No issues - **PASS**
@@ -247,7 +256,6 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 * In terms of the design strategy, the project was developed at break neck speed to meet the deadline. Wireframes were developed to give an idea of the main structure required. From there, work concentrated on getting the API working and passing data to the HTML. This took about one third of the project time. From there, the function calls were developed to display questions and sequence the calls to make the site loop through the game.
 * The site uses the CSS "display: hidden;" attribute to move from one game screen to another rather than jumping html pages.
 * The styling of the site developed organically using color palettes and mockups of the site in Microsoft Word to move elements, insert different backgrounds and find what worked best before implementing in HTML and CSS.
-
 
 ### User Stories
 
@@ -310,7 +318,7 @@ in the HTML head.
 
 ---
 
-The site has been deployed on [GitHub Pages](https://pages.github.com/) with under the following link [QuizChallenge](https://starrant.github.io/QuizChallenge/).
+The site has been deployed on [GitHub Pages](https://pages.github.com/) with under the following link [quiz_challenge](https://starrant.github.io/quiz_challenge/).
 
 ## Credits
 
@@ -332,4 +340,6 @@ and used for free following their [attribution rules](https://support.freepik.co
 ### Special Thanks
 
 * My Code Institute mentor, [Simen Daehlin](https://github.com/Eventyret), for a lot of great advice and direction along the way. His time, effort and experience made a huge difference to the code quality, readability and end result. It would be hard to overstate his input here.
-* Include thanks to ByIlsa... ********
+* Include thanks to [byIlsa](https://github.com/byIlsa) for a great tutorial video on preparing MS2 and some much needed support when I was in the depths of dispair at the half way point!
+* Many thanks to my family for allowing me to lock myself in the corner office on all those sunny weekends and evenings to get this over the line.
+* My daughter who painstakingly played this game until she knew all the animal category questions by heart on every difficulty level.
