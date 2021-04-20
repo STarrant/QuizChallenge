@@ -33,7 +33,7 @@
 
 ### Project Goals
 
-* The goal of this project is to create a simple, fun quiz game that is intuitive to use and draws on an 
+* The goal of this project is to create a simple, fun quiz game that is intuitive to use and draws on an
 external trivia database to maintain a user's interest by continually providing new questions.
 
 ### User Goals
@@ -49,7 +49,7 @@ external trivia database to maintain a user's interest by continually providing 
 * As a **user**, I want to be able to start my first game with a single click to see if I like this game.
 * As a **user**, I want to see my current score so I can keep track of how I'm doing.
 * As a **user**, I want to be challenged with different questions every time I play this game.
-* As a **user**, I want to be able to select different categories, quantities and difficulty levels of questions. 
+* As a **user**, I want to be able to select different categories, quantities and difficulty levels of questions.
 * As a **user**, I may want to see who developed this game to contact them with suggestions or business proposals.
 
 ### Site Owner Goals
@@ -79,24 +79,24 @@ external trivia database to maintain a user's interest by continually providing 
 ---
 _________________________________________________
 
-For the design of this site, I took inspriation from books and cartoons that my children are most interested in. 
+For the design of this site, I took inspriation from books and cartoons that my children are most interested in.
 The colors selected are bright pastels. Rainbow-colored hortizontal rules break between the header, game and footer areas.
 A subtle jungle pastel backdrop was used to create focus on the centre of the screen. The logo is a simple rendering using
 Microsoft Word's WordArt and Shapes to create a colorful text based logo. The green tick mark for Q's cross stroke is alluding
-to a correct mark of a quiz. Simple shadowing has been added to give an embossed effect and make the text stand out from the 
+to a correct mark of a quiz. Simple shadowing has been added to give an embossed effect and make the text stand out from the
 background without resorting to deeper hued colors or outlines.
 
 #### Fonts
 
-* (Google Fonts)[https://fonts.google.com/] has been used to add typographic style to the site.
+* [Google Fonts](https://fonts.google.com/) has been used to add typographic style to the site.
 With legibilty and ease of eye strain being a key focus of a text-based game that involves a lot of reading,
-(Roboto)[https://fonts.google.com/specimen/Roboto] was chosen as the main font with 
-(RocknRoll One)[https://fonts.google.com/specimen/RocknRoll+One] being used for some of the heading text for a more fun font.
+[Roboto](https://fonts.google.com/specimen/Roboto) was chosen as the main font with
+[RocknRoll One](https://fonts.google.com/specimen/RocknRoll+One) being used for some of the heading text for a more fun font.
 The main logo was designed in Microsoft Word with the Berlin Sans font.
 
 #### Icons
 
-* (FontAwesome)[https://fontawesome.com/] free icons have been used throughout this project.
+* [FontAwesome](https://fontawesome.com/) free icons have been used throughout this project.
 
 #### Colors
 
@@ -172,12 +172,15 @@ HTML code has been tested using the [HTML Validator](https://validator.w3.org/) 
 
 #### HTML Test Errors
 
-* ___________________________________________
-```
+* 1 Error: Text not allowed in element select in this context.
+* 2 - 5 Warning: Empty heading x 4
+* 6 Warning: type attrbute unnecessary in JavaScript resources.
 
 #### HTML Test Fixes
 
-* ______________________________________________________
+* 1 This was caused by a small typo which was corrected.
+* 2 - 5 Ignore error. These headers are in place to accept JavaScript-driven text when functions are called.
+* 6 Ignore this error.
 
 ### CSS Test
 
@@ -185,21 +188,20 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 #### CSS Test Errors
 
- ______________________________________________________
+* None
+
 
 #### CSS Test Warnings
 
-``` css
-    _______________________________________________________
-```
+* 1 Warning Imported style sheets are not checked in direct input and file upload modes.
 
 #### CSS Test Fixes
 
-* ___________________________________________________________
+* Warning 1 - Ignore.
 
 ### Responsiveness
 
-* ______________________________________________________________________________________________________________________
+*
 
 <details>
   <summary>Responsiveness of the design was tested using Chrome's Developer Tools and the result overall was a xxxxxxxxxxxxxx  **PASS**   xxxxxxxxxxxxx. Open the dropdown here to see screenshots of the results.</summary>
@@ -208,17 +210,14 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 * Full Screen 24” Browser Window – Google Chrome – No Issues - **PASS**
   * Result: ![Responsive test Fullscreen](wireframes/ace-responsive-fullscreen.jpg)
-  * ______________________________________________________________________________________________________________________
+
+  *
 
 </details>
 
 ### Design
 
-* ___________________________________________________________
-
-### Contact form
-
-* ___________________________________________________________
+*
 
 ### User Stories
 
@@ -252,13 +251,13 @@ Many bugs were encountered during the development of the project - all admittedl
 
 ### Development Bugs
 
-* The opentdb api was very, very difficult to get working as a JavaScript learner. I had serious difficulty 
+* The opentdb api was very, very difficult to get working as a JavaScript learner. I had serious difficulty
 fetching the JSON and storing this question data in an array of objects to be used in the quiz loop. Eventually,
 after a week of trying different techniques I managed to get it to store outside the function call.
-* Special HTML character codes were being displayed in the question and answer fields. E.g. &quot;, &#039;. 
-Code was initially written in to use array.replace() to find and replace them out. The actual solution was 
-to write the text strings from JS to HTML targetting the .innerHTML rather than .textContent. This avoided 
-the information being passed to the browser inside quotes as a string and thus was interpreted as a special 
+* Special HTML character codes were being displayed in the question and answer fields. E.g. &quot;, &#039;.
+Code was initially written in to use array.replace() to find and replace them out. The actual solution was
+to write the text strings from JS to HTML targetting the .innerHTML rather than .textContent. This avoided
+the information being passed to the browser inside quotes as a string and thus was interpreted as a special
 character code rather than a string.
 * Deploying to GitHub Pages caused some difficulty where JS files were not being loaded. The was corrected by
  removing a preceding '/' from the source link.
@@ -269,13 +268,13 @@ A solution was found on [StackOverflow](https://stackoverflow.com/questions/2610
 By moving event listeners into the window.onload function, the event listeners would not be called before the page had loaded.
 * There was a favicon.ico error in the console during testing. An icon was generated for the site and added to the root.
 * Numerous errors were encountered with the site on Github pages and links to external resources, mainly the audio files.
-I have no adequate explanation of how or why this was happening as it was not an issue on previous projects hosted on github pages.
-A base tag was added to the head section index.html but a longer file path of ...QuizChallenge was added to the link path.
-
+Apparently, github does not support audio files. To get around this issue, the file path for the audio starts at the repo name.
+* The favivon.ico error could not be resolved without adding this solution from [Stackoverflow](https://stackoverflow.com/questions/35037482/favicon-with-github-pages)
+in the HTML head.
 
 ### Testing Bugs
 
-* A few bugs were thrown up by the HTML Validator and CSS Validator. The solutions are given above in the **HTML Test** and **CSS Test** Sections.
+* A few bugs were thrown up by the HTML Validator, CSS Validator and JSHint. The solutions are given above in the **HTML Test** and **CSS Test** Sections.
 
 ## Deployment
 
@@ -287,8 +286,8 @@ The site has been deployed on [GitHub Pages](https://pages.github.com/) with und
 
 ---
 
-* The jungle background vector was created by (katemangostar)[https://www.freepik.com/katemangostar], provided by (Freepik)[https://www.freepik.com/vectors/background] 
-and used for free following their (attribution rules)[https://support.freepik.com/hc/en-us/articles/208976585-How-do-I-insert-the-attribution-correctly-].
+* The jungle background vector was created by [katemangostar](https://www.freepik.com/katemangostar), provided by [Freepik](https://www.freepik.com/vectors/background)
+and used for free following their [attribution rules](https://support.freepik.com/hc/en-us/articles/208976585-How-do-I-insert-the-attribution-correctly-).
 * [JSHint.com](https://jshint.com/) was used to error check the JavaScript code.
 * [Markdown guide basic syntax](https://www.markdownguide.org/basic-syntax/) was used as a reference in writing the README.md file.
 * [Markdownlint](https://dlaa.me/markdownlint/) by [David Anson](https://github.com/DavidAnson) was used for correcting the errors in my markdown. It is an awesome resource and saved me hours of correction time.
