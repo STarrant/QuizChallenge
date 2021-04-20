@@ -1,3 +1,8 @@
+// Courtesy of James Hibbard (https://stackoverflow.com/users/1136887/james-hibbard) from 
+// StackOverflow question 27441803 (https://stackoverflow.com/questions/27441803/why-does-jshint-throw-a-warning-if-i-am-using-const)
+// Cancels out erroneous errors and warnings on JSHint tool.
+/*jshint esversion: 6 */
+
 // --- VARIABLES ---
 
 const buttons = ['qc_btnA', 'qc_btnB', 'qc_btnC', 'qc_btnD'];    //IDs of the answer buttons.
