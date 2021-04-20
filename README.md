@@ -162,6 +162,9 @@ it may have been difficult to match in with the style of the project.
 * [JQuery](https://jquery.com/)
 * [Google fonts](https://fonts.google.com/)
 * [Markdownlint](https://dlaa.me/markdownlint/)
+* [W3C HTML Validator](https://validator.w3.org/)
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator)
+* [JSHint](https://jshint.com/)
 
 ## Testing
 
