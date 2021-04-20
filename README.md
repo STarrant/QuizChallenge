@@ -137,6 +137,7 @@ these wireframes were relatively faithfully produced. Other aspects of the desig
 
 **Features** that will be **implemented** in the **future:**
 
+* Improvement on the responsive nature of the site is definitely an area for improvement. Fixing the size of the game area and using media queries is required.
 * Two player mode. (This is my single biggest disappointment that I did not have time to get this implemented before project submission.)
 * Google text-to-speech api to read questions and answer choices.
 * Change the picture backgrounds to suit the quiz category. The work involved here made this prohibitive in the project timeline and
@@ -201,17 +202,31 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 ### Responsiveness
 
-*
-
 <details>
-  <summary>Responsiveness of the design was tested using Chrome's Developer Tools and the result overall was a xxxxxxxxxxxxxx  **PASS**   xxxxxxxxxxxxx. Open the dropdown here to see screenshots of the results.</summary>
+  <summary>Responsiveness of the design was tested using Chrome's Developer Tools and the result overall was a **PASS** but there is definitely a lot of room for improvement. Open the dropdown here to see screenshots of the results.</summary>
 
 #### Summary of responsive design tests
 
 * Full Screen 24” Browser Window – Google Chrome – No Issues - **PASS**
-  * Result: ![Responsive test Fullscreen](wireframes/ace-responsive-fullscreen.jpg)
+* Result: ![Responsive test Fullscreen](wireframes/qc-responsive-fullscreen.jpg)
+* iPhone 6/7/8 – No Issues - **PASS**
+* Result: ![Responsive test iPhone 6/7/8](wireframes/qc-responsive-iphone678.jpg) 
+* iPhone 6/7/8 Plus – No issues - **PASS**
+* Result: ![Responsive test iPhone 6/7/8 Plus](wireframes/qc-responsive-iphone678plus.jpg)
+* iPhone X – No issues - **PASS**
+* Result: ![Responsive test iPhone X](wireframes/qc-responsive-iphonex.jpg)
+* iPad – No Issues - **PASS**
+* Result: ![Responsive test iPad](wireframes/qc-responsive-ipad.jpg)
+* iPad Pro – Slight issue in that the site doesn’t have enough vertical height on 100% zoom. Otherwise no issue. - **PASS**
+* Result: ![Responsive test iPad Pro](wireframes/qc-responsive-ipadpro.jpg)
+* Pixel 2 – No Issues - **PASS**
+* Result: ![Responsive test Pixel 2](wireframes/qc-responsive-pixel2.jpg)
+* Pixel 2 XL – No Issues - **PASS**
+* Result: ![Responsive test Pixel 2 XL](wireframes/qc-responsive-pixel2xl.jpg)
+* Galaxy S5 – No Issues - **PASS**
+* Result: ![Responsive test Galaxy S5](wireframes/qc-responsive-galaxys5.jpg)
 
-  *
+
 
 </details>
 
