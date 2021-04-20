@@ -59,7 +59,7 @@ function categoryJSONToHTMLOptions(opentdbCategoriesObject) {
         var item = {
             "id": category.id,
             "name": category.name
-            }
+            };
         return item;
     });
 
