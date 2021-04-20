@@ -77,7 +77,6 @@ external trivia database to maintain a user's interest by continually providing 
 ### Design Choices
 
 ---
-_________________________________________________
 
 For the design of this site, I took inspriation from books and cartoons that my children are most interested in.
 The colors selected are bright pastels. Rainbow-colored hortizontal rules break between the header, game and footer areas.
@@ -111,7 +110,7 @@ The website colors were chosen using [coolors.co](https://coolors.co/).
 Wireframes were developed for a start screen, question screen and score screen. The main elements of
 these wireframes were relatively faithfully produced. Other aspects of the design developed more organically.</summary>
 
-#### Project Wireframes
+### Project Wireframes
 
 * Start Screen Wireframe
 * ![Start Screen Wireframe](/assets/wireframes/qc_wf_01_startscreen.png)
@@ -140,7 +139,9 @@ these wireframes were relatively faithfully produced. Other aspects of the desig
 
 * Two player mode. (This is my single biggest disappointment that I did not have time to get this implemented before project submission.)
 * Google text-to-speech api to read questions and answer choices.
-* Change the picture backgrounds to suit the quiz category. The work involved here made this prohibitive in the project timeline and it may have been difficult to match in with the style of the project.
+* Change the picture backgrounds to suit the quiz category. The work involved here made this prohibitive in the project timeline and
+it may have been difficult to match in with the style of the project.
+* Muted mode and high contrast mode were removed from the design because of issues getting them to work. These would definitely be useful to implement given more time.
 
 ## Technologies Used
 
@@ -189,7 +190,6 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 #### CSS Test Errors
 
 * None
-
 
 #### CSS Test Warnings
 
@@ -253,7 +253,7 @@ Many bugs were encountered during the development of the project - all admittedl
 
 * The opentdb api was very, very difficult to get working as a JavaScript learner. I had serious difficulty
 fetching the JSON and storing this question data in an array of objects to be used in the quiz loop. Eventually,
-after a week of trying different techniques I managed to get it to store outside the function call. This 
+after a week of trying different techniques I managed to get it to store outside the function call. This
 [article](https://medium.com/@sandhya.sadanandan/javascript-how-to-construct-an-array-of-json-objects-using-map-d1a513727008)
 was very useful in understanding the mapping of JSON objects to an array.
 * Special HTML character codes were being displayed in the question and answer fields. E.g. &quot;, &#039;.
