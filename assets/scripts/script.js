@@ -267,22 +267,6 @@ function scoreScreen() {
     document.getElementById('qc_scoreScreen').classList.remove('qc_hide');
 }
 
-// ----------------------------------------------------------------------------------------------------------------------------------
-//                                         COLOR EFFECTS
-// ----------------------------------------------------------------------------------------------------------------------------------
-
-function colorMode() {
-    // --- Change the logo background image ---
-    document.getElementById('qc_logo').classList.remove('qc_logobgHighContrast');
-    document.getElementById('qc_logo').classList.add('qc_logobgColor');
-}
-
-function highContrastMode() {
-    // --- Change the logo background image ---
-    document.getElementById('qc_logo').classList.add('qc_logobgHighContrast');
-    document.getElementById('qc_logo').classList.remove('qc_logobgColor');
-}
-
 //-----------------------------------------------------------------------------------------------------------------------------------
 // --- AUDIO EFFECTS ---
 //-----------------------------------------------------------------------------------------------------------------------------------

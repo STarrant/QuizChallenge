@@ -67,16 +67,6 @@ h4 {
     min-height: 100px;
 }
 
-.qc_logobgHighContrast {
-    background: url("../images/qc_logo_highcontrast.png");
-    padding-top: 5%;
-    padding-bottom: 5%;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: contain;
-    min-height: 100px;
-}
-
 .qc_menuColor{
     padding:        0;
     margin:         auto;
