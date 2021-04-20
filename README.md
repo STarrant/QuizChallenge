@@ -95,7 +95,7 @@ The main logo was designed in Microsoft Word with the Berlin Sans font.
 
 #### Icons
 
-* [FontAwesome](https://fontawesome.com/) free icons have been used throughout this project.
+* [FontAwesome](https://fontawesome.com/) free icons were used in early versions of the project but have since been removed. They may be reintroduced in a future version.
 
 #### Colors
 
@@ -158,7 +158,6 @@ it may have been difficult to match in with the style of the project.
 
 * [Git](https://git-scm.com/)
 * [Bootstrap](https://getbootstrap.com/)
-* [Font-Awesome](https://fontawesome.com/icons?d=gallery)
 * [Popper](https://popper.js.org/)
 * [JQuery](https://jquery.com/)
 * [Google fonts](https://fonts.google.com/)
