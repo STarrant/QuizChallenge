@@ -200,6 +200,15 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 * Warning 1 - Ignore.
 
+### JavaScript Test
+
+#### JavaScript Test Errors
+
+#### JavaScript Test Warnings
+
+#### JavaScript Test Fixes
+
+
 ### Responsiveness
 
 <details>
@@ -226,13 +235,17 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 * Galaxy S5 – No Issues - **PASS**
 * Result: ![Responsive test Galaxy S5](wireframes/qc-responsive-galaxys5.jpg)
 
-
-
 </details>
 
 ### Design
 
-*
+* The idea for doing this project came from my mentor, [Simen Daehlin](https://github.com/Eventyret), who suggested making a quiz game based on the [opentdb website](https://opentdb.com/).
+* There are a few videos online for tutorials on how to make this kind of application but admittedly, I found them either too complicated, too tedious, too unique to be uncopyable without infringing on plagarism rules or a combination of all three. Hence, for better or worse, this project is largely my own concept of how I imagine a JavaScript driven quiz game should work.
+* The timing of this project in the course of the diploma, coincided with the annual shutdown of my day-job's plant and my mentor's holidays therefore, apart from the inception meeting, there were no other mentor sessions. This was unavoidable under the circumstances but the code of this project will lack the scrutiny that I would otherwise had received.
+* In terms of the design strategy, the project was developed at break neck speed to meet the deadline. Wireframes were developed to give an idea of the main structure required. From there, work concentrated on getting the API working and passing data to the HTML. This took about one third of the project time. From there, the function calls were developed to display questions and sequence the calls to make the site loop through the game.
+* The site uses the CSS "display: hidden;" attribute to move from one game screen to another rather than jumping html pages.
+* The styling of the site developed organically using color palettes and mockups of the site in Microsoft Word to move elements, insert different backgrounds and find what worked best before implementing in HTML and CSS.
+
 
 ### User Stories
 
